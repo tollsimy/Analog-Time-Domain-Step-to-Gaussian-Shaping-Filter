@@ -1,0 +1,21 @@
+Circuit: * C:\Users\simon\Desktop\UniTN\3° anno\1° semestre\Elettronica Analogica\time-domain-gaussian-shaping-filters\LT Spezia\XXXnS_FWHM_Ideal_MFB_3_LP_Bessel_1_HP\MFB_3_LP_Bessel_1_HP.asc
+
+Per .tran options, skipping operating point for transient analysis.
+
+Date: Mon Feb 21 11:40:13 2022
+Total elapsed time: 0.300 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 40042
+traniter = 40042
+tranpoints = 20022
+accept = 20021
+rejected = 1
+matrix size = 16
+fillins = 2
+solver = Normal
+Matrix Compiler1: 976 bytes object code size  0.2/0.1/[0.1]
+Matrix Compiler2: off  [0.1]/0.1/0.1
+

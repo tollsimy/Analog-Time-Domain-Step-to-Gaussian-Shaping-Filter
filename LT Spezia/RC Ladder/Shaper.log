@@ -1,0 +1,22 @@
+Circuit: * C:\Users\simon\Desktop\UniTN\3° anno\1° semestre\Elettronica Analogica\Progetto\LT Spezia\Shaper.asc
+
+Per .tran options, skipping operating point for transient analysis.
+
+Date: Thu Feb 17 18:54:41 2022
+Total elapsed time: 3.047 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 42075
+traniter = 42075
+tranpoints = 20774
+accept = 20638
+rejected = 136
+matrix size = 183
+fillins = 84
+solver = Normal
+Thread vector: 73.9/26.0[8] 20.6/12.2[8] 16.0/10.5[8] 0.9/3.0[1]  2592/500
+Matrix Compiler1: 15.65 KB object code size  9.6/5.2/[0.8]
+Matrix Compiler2: 19.29 KB object code size  4.8/6.1/[0.8]
+

@@ -1,0 +1,2293 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.electronics-tutorials.ws/opamp/opamp_6.html -->
+<html lang="en" class="jetpack-lazy-images-js-enabled"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="tj9_rbC16lE8l_IgmmKAhIXCjBstXSHjmmvXaIrc1ww">
+    <meta name="referrer" content="always">
+    <title>Op-amp Integrator, Operational Amplifier Integrator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Op-amp Integrator, Operational Amplifier Integrator_files/css" rel="stylesheet" as="font">
+
+    <!--[if IE]>
+    <style>
+        .footer-wrap ul li a:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .footer-wrap ul li a {
+            text-decoration: none;
+            background-color: #000000;
+        }
+
+        .footer-wrap ul li {
+            text-decoration: none;
+        }
+    </style>
+    <![endif]-->
+
+    <!-- BEGIN Krux ControlTag for "AspenCore Generic" -->
+    <script type="text/javascript" src="./Op-amp Integrator, Operational Amplifier Integrator_files/optout_check"></script><script type="text/javascript" src="./Op-amp Integrator, Operational Amplifier Integrator_files/eef4e751-7bcd-435e-8a7a-a39ab785c404"></script><script src="./Op-amp Integrator, Operational Amplifier Integrator_files/rules-p-ha81gRQTKQ0vn.js.download" async=""></script><script type="text/javascript" async="" src="./Op-amp Integrator, Operational Amplifier Integrator_files/analytics.js.download"></script><script type="text/javascript" async="" src="./Op-amp Integrator, Operational Amplifier Integrator_files/analytics.js.download"></script><script async="" src="./Op-amp Integrator, Operational Amplifier Integrator_files/controltag.js.a1705c5ac5f06cf0c202ff70908fc042"></script><script src="./Op-amp Integrator, Operational Amplifier Integrator_files/quant.js.download" async="" type="text/javascript"></script><script async="" src="./Op-amp Integrator, Operational Amplifier Integrator_files/gtm.js.download"></script><script async="" src="./Op-amp Integrator, Operational Amplifier Integrator_files/gtm.js(1).download"></script><script async="" src="./Op-amp Integrator, Operational Amplifier Integrator_files/apstag.js.download"></script><script type="text/javascript" async="" src="./Op-amp Integrator, Operational Amplifier Integrator_files/sbnf4txm4.js.download"></script><script class="kxct" data-id="sbnf4txm4" data-timing="async" data-version="3.0" type="text/javascript">
+        window.Krux || ((Krux = function () {
+            Krux.q.push(arguments)
+        }).q = []);
+        (function () {
+            var k = document.createElement('script');
+            k.type = 'text/javascript';
+            k.async = true;
+            //k.src = (location.protocol === 'https:' ? 'https:' : 'http:') + '//cdn.krxd.net/controltag/sbnf4txm4.js';
+            k.src = 'https://cdn.krxd.net/controltag/sbnf4txm4.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(k, s);
+        }());
+    </script>
+    <!-- END Krux ControlTag -->
+
+    <script class="kxint" data-namespace="aspencore" type="text/javascript">
+        window.Krux || ((Krux = function () {
+            Krux.q.push(arguments);
+        }).q = []);
+        (function () {
+            function retrieve(n) {
+                var k = 'kx' + 'aspencore_' + n, ls = (function () {
+                    try {
+                        return window.localStorage;
+                    } catch (e) {
+                        return null;
+                    }
+                })();
+                if (ls) {
+                    return ls[k] || '';
+                } else if (navigator.cookieEnabled) {
+                    var m = document.cookie.match(k + '=([^;]*)');
+                    return (m && unescape(m[1])) || '';
+                } else {
+                    return '';
+                }
+            }
+
+            Krux.user = retrieve('user');
+            Krux.segments = retrieve('segs') ? retrieve('segs').split(',') : [];
+        })();
+    </script>
+    <script async="" src="./Op-amp Integrator, Operational Amplifier Integrator_files/191067-113724631480839.js.download"></script>
+
+    <script async="" src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+
+    <script>
+        window.googletag = window.googletag || {cmd: []};
+    </script>
+
+    
+<!-- pageUrl = {/opamp/opamp_6.html} -->
+<!-- pageCategory = {opamp} -->
+<!-- adCategory = {opamps} -->
+<!-- placeCategoryAdTags = {1} -->
+
+        <!-- define category based ads Slot 1 -->
+        <script type="text/javascript">
+            var google_ads = [];
+            var stickyLeft;
+            var stickyFooter;
+            var anchorSlot, interstitialSlot;
+
+            googletag.cmd.push(function () {
+                // modify the [800, 600] to set the max screen size to display the mobile ad size
+                var newbillboardMapping = googletag.sizeMapping().addSize([800, 375], [970, 250]).addSize([0, 0], [320, 100]).build();
+                var contentBottomMapping = googletag.sizeMapping().addSize([800, 300], [728, 90]).addSize([0, 0], [320, 100]).build();
+
+                var stickyLeftSizes = googletag.sizeMapping().addSize([1900, 800], [300, 600]).addSize([1500, 730], [160, 600]).addSize([0, 0], []).build();
+                //1900px but more than 1500px
+
+                var contentTopLeft = googletag.sizeMapping().addSize([800, 300], [[336, 280], [300, 250]]).addSize([0, 0], []).build();
+                var contentTopRight = googletag.sizeMapping().addSize([800, 300], [[336, 280], [300, 250]]).addSize([0, 0], []).build();
+
+                var contentMiddle = googletag.sizeMapping().addSize([800, 300], [728, 90]).addSize([0, 0], []).build();
+                var contentMiddleCat = googletag.sizeMapping().addSize([800, 300], [728, 90]).addSize([0, 0], [300, 250]).build();
+                var contentMiddle2Left = googletag.sizeMapping().addSize([800, 300], [[336, 280], [300, 250]]).addSize([0, 0], []).build();
+                var contentMiddle2Right = googletag.sizeMapping().addSize([800, 300], [[336, 280], [300, 250]]).addSize([0, 0], []).build();
+                var sidebarTop = googletag.sizeMapping().addSize([800, 300], [300, 600]).addSize([0, 0], []).build();
+                var sidebarMiddle = googletag.sizeMapping().addSize([800, 300], [300, 600]).addSize([0, 0], []).build();
+
+                var mobileMiddle = googletag.sizeMapping().addSize([800, 300], []).addSize([0, 0], [300, 250]).build();
+                var mobileMiddle2 = googletag.sizeMapping().addSize([800, 300], []).addSize([0, 0], [320, 100]).build();
+                var mobileBottom = googletag.sizeMapping().addSize([800, 300], []).addSize([0, 0], [300, 250]).build();
+
+                var footerAdhesion = googletag.sizeMapping().addSize([880, 300], [728, 90]).addSize([0, 0], []).build();
+                var interstitialSlot = googletag.defineOutOfPageSlot('/74317539/ElectronicsTutorials/Interstitial', googletag.enums.OutOfPageFormat.INTERSTITIAL);
+
+                if (interstitialSlot) {
+                    //interstitialSlot.addService(googletag.pubads());
+                    interstitialSlot.addService(googletag.pubads()).setTargeting('pos', ['interstitial']).setTargeting('sec', ['miscellaneous']);
+                }
+
+                var anchorSlot = googletag.defineOutOfPageSlot(
+                    '/74317539/ElectronicsTutorials/article', googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR);
+
+                googletag.pubads().disableInitialLoad();
+                googletag.pubads().enableSingleRequest();
+
+                                    <!-- new added slots (testing) -->
+                    googletag.defineSlot('/74317539/ElectronicsTutorials/article', [[336, 280], [300, 250]], 'div-gpt-ad-content-top-left').defineSizeMapping(contentTopLeft).setTargeting('pos', ['contentTopLeft']).setTargeting('sec', ['opamps']).addService(googletag.pubads());
+                    googletag.defineSlot('/74317539/ElectronicsTutorials/article', [[336, 280], [300, 250]], 'div-gpt-ad-content-top-right').defineSizeMapping(contentTopRight).setTargeting('pos', ['contentTopRight']).setTargeting('sec', ['opamps']).addService(googletag.pubads());
+
+                    googletag.defineSlot('/74317539/ElectronicsTutorials/article', [[336, 280], [300, 250]], 'div-gpt-ad-content-middle-2-left').defineSizeMapping(contentMiddle2Left).setTargeting('pos', ['contentMiddle2Left']).setTargeting('sec', ['opamps']).addService(googletag.pubads());
+                    googletag.defineSlot('/74317539/ElectronicsTutorials/article', [[336, 280], [300, 250]], 'div-gpt-ad-content-middle-2-right').defineSizeMapping(contentMiddle2Right).setTargeting('pos', ['contentMiddle2Right']).setTargeting('sec', ['opamps']).addService(googletag.pubads());
+	            
+                //googletag.defineSlot('/74317539/ElectronicsTutorials///', [[728, 90], [320, 100]], 'div-gpt-ad-content-bottom').defineSizeMapping(contentBottomMapping).setTargeting('sec', ['//']).setTargeting('pos', ['contentBottom']).addService(googletag.pubads());
+
+                googletag.defineSlot('/74317539/ElectronicsTutorials/article', [[970, 250], [320, 100]], 'div-gpt-ad-billboard-smartphonebanner').defineSizeMapping(newbillboardMapping).setTargeting('sec', ['opamps']).setTargeting('pos', ['top']).addService(googletag.pubads());
+                stickyLeft = googletag.defineSlot('/74317539/ElectronicsTutorials/article', [[300, 600], [160, 600]], 'div-gpt-ad-sticky-left').defineSizeMapping(stickyLeftSizes).setTargeting('sec', ['opamps']).setTargeting('pos', ['leftWhitespace']).setTargeting('type', ['sticky']).addService(googletag.pubads());
+                googletag.defineSlot('/74317539/ElectronicsTutorials/article', [[300, 600]], 'div-gpt-ad-right-sidebar-top').setTargeting('sec', ['opamps']).setTargeting('pos', ['sidebarTop']).defineSizeMapping(sidebarTop).addService(googletag.pubads());
+                googletag.defineSlot('/74317539/ElectronicsTutorials/article', [[300, 600]], 'div-gpt-ad-right-sidebar-middle').setTargeting('sec', ['opamps']).setTargeting('pos', ['sidebarMiddle']).defineSizeMapping(sidebarMiddle).addService(googletag.pubads());
+
+                                    googletag.defineSlot('/74317539/ElectronicsTutorials/article', [[728, 90]], 'div-gpt-ad-content-middle').defineSizeMapping(contentMiddle).setTargeting('pos', ['contentMiddle']).setTargeting('sec', ['opamps']).addService(googletag.pubads());
+	            
+	            
+	                                stickyFooter = googletag.defineSlot('/74317539/ElectronicsTutorials/article', [[728, 90]], 'div-gpt-ad-footer-adhesion').defineSizeMapping(footerAdhesion).setTargeting('sec', ['opamps']).setTargeting('pos', ['footerAdhesion']).setTargeting('type', ['sticky']).addService(googletag.pubads());
+	            
+                <!-- end new added slots (testing) -->
+
+                if (anchorSlot) {
+                    anchorSlot.setTargeting('pos', ['anchor']).setTargeting('sec', ['opamps']).addService(googletag.pubads());
+                }
+
+                // googletag.pubads().enableSingleRequest();
+                googletag.pubads().enableLazyLoad({
+                    fetchMarginPercent: 100,
+                    renderMarginPercent: 50,
+                    mobileScaling: 2.0
+                });
+
+                                googletag.pubads().setTargeting('aid', '2089');
+				
+                googletag.pubads().setTargeting("ksg", Krux.segments);
+                googletag.pubads().setTargeting("kuid", Krux.user);
+                //googletag.pubads().collapseEmptyDivs();
+
+                //googletag.pubads().enableAsyncRendering();
+                googletag.enableServices();
+            });
+
+        </script>
+        <!-- end block one -->
+	
+	
+        <script type="text/javascript">
+            !function (a9, a, p, s, t, A, g) {
+                if (a[a9]) return;
+
+                function q(c, r) {
+                    a[a9]._Q.push([c, r])
+                }
+
+                a[a9] = {
+                    init: function () {
+                        q("i", arguments)
+                    }, fetchBids: function () {
+                        q("f", arguments)
+                    }, setDisplayBids: function () {
+                    }, targetingKeys: function () {
+                        return []
+                    }, _Q: []
+                };
+                A = p.createElement(s);
+                A.async = !0;
+                A.src = t;
+                g = p.getElementsByTagName(s)[0];
+                g.parentNode.insertBefore(A, g)
+            }("apstag", window, document, "script", "//c.amazon-adsystem.com/aax2/apstag.js");
+
+            // initialize apstag and have apstag set bids on the googletag slots when they are returned to the page
+            apstag.init({
+                pubID: 'b39de647-fae8-40b5-85c4-f3f27fc81dff',
+                adServer: 'googletag',
+                bidTimeout: 2e3
+            });
+
+            // request the bids for the four googletag slots
+            apstag.fetchBids({
+                slots: [
+                    {
+                        slotID: 'div-gpt-ad-content-top-left',
+                        slotName: '/74317539/ElectronicsTutorials/article',
+                        sizes: [[336, 280]]
+                    },
+                    {
+                        slotID: 'div-gpt-ad-content-top-right',
+                        slotName: '/74317539/ElectronicsTutorials/article',
+                        sizes: [[336, 280]]
+                    },
+                    {
+                        slotID: 'div-gpt-ad-content-middle-2-left',
+                        slotName: '/74317539/ElectronicsTutorials/article',
+                        sizes: [[336, 280]]
+                    },
+                    {
+                        slotID: 'div-gpt-ad-content-middle-2-right',
+                        slotName: '/74317539/ElectronicsTutorials/article',
+                        sizes: [[336, 280]]
+                    },
+                    // {
+                    //     slotID: 'div-gpt-ad-content-bottom',
+                    //     slotName: '/74317539/ElectronicsTutorials/article',
+                    //     sizes: [[728, 90], [320, 100]]
+                    // },
+                    {
+                        slotID: 'div-gpt-ad-billboard-smartphonebanner',
+                        slotName: '/74317539/ElectronicsTutorials/article',
+                        sizes: [[970, 250], [320, 100]]
+                    },
+                    {
+                        slotID: 'div-gpt-ad-right-sidebar-top',
+                        slotName: '/74317539/ElectronicsTutorials/article',
+                        sizes: [[300, 600]]
+                    },
+                    {
+                        slotID: 'div-gpt-ad-right-sidebar-middle',
+                        slotName: '/74317539/ElectronicsTutorials/article',
+                        sizes: [[300, 600]]
+                    },
+                    {
+                        slotID: 'div-gpt-ad-content-middle',
+                        slotName: '/74317539/ElectronicsTutorials/article',
+                        sizes: [[728, 90]]
+                    }]
+            }, function (bids) {
+                // set apstag bids, then trigger the first request to GAM
+                googletag.cmd.push(function () {
+                    apstag.setDisplayBids();
+                    googletag.pubads().refresh();
+                });
+            });
+        </script>
+
+    
+        <!-- End Aspencore Ad code -->
+	        <script>
+            dmpDataLayer = [{"title":"The Integrator Amplifier","section":["Operational Amplifiers"],"pageType":"Tutorial","keywords":["Tutorial","Op-amps","RC Circuit","Operational Amplifiers"]}];
+        </script>
+		
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="alternate" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html" hreflang="en">
+<link rel="alternate" href="https://www.electronics-tutorials.ws/de/operationsverstarker/integrierverstaerker.html" hreflang="de">
+<link rel="alternate" href="https://www.electronics-tutorials.ws/pl/operacyjnych/wzmacniacz-caikujacego.html" hreflang="pl">
+
+	<!-- This site is optimized with the Yoast SEO plugin v17.8 - https://yoast.com/wordpress/plugins/seo/ -->
+	<meta name="description" content="Electronics Tutorial about the Op-amp Integrator circuit which uses an Operational Amplifier to Integrate the input signal">
+	<link rel="canonical" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html">
+	<meta property="og:locale" content="en_GB">
+	<meta property="og:locale:alternate" content="de_DE">
+	<meta property="og:locale:alternate" content="pl_PL">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Op-amp Integrator - The Operational Amplifier Integrator">
+	<meta property="og:description" content="Electronics Tutorial about the Op-amp Integrator circuit which uses an Operational Amplifier to Integrate the input signal">
+	<meta property="og:url" content="https://www.electronics-tutorials.ws/opamp/opamp_6.html">
+	<meta property="og:site_name" content="Basic Electronics Tutorials">
+	<meta property="article:publisher" content="https://www.facebook.com/electronicstutorials">
+	<meta property="article:published_time" content="2013-08-24T06:25:58+00:00">
+	<meta property="article:modified_time" content="2020-02-19T08:16:11+00:00">
+	<meta property="og:image" content="https://www.electronics-tutorials.ws/wp-content/uploads/2013/08/opamp26.gif?fit=400%2C204">
+	<meta property="og:image:width" content="400">
+	<meta property="og:image:height" content="204">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:label1" content="Written by">
+	<meta name="twitter:data1" content="Wayne Storr">
+	<meta name="twitter:label2" content="Est. reading time">
+	<meta name="twitter:data2" content="7 minutes">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.electronics-tutorials.ws/#website","url":"https://www.electronics-tutorials.ws/","name":"Basic Electronics Tutorials","description":"Electronics Tutorials for Beginners and Students","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.electronics-tutorials.ws/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-GB"},{"@type":"ImageObject","@id":"https://www.electronics-tutorials.ws/opamp/opamp_6.html#primaryimage","inLanguage":"en-GB","url":"https://www.electronics-tutorials.ws/wp-content/uploads/2013/08/opamp26.gif?fit=400%2C204","contentUrl":"https://www.electronics-tutorials.ws/wp-content/uploads/2013/08/opamp26.gif?fit=400%2C204","width":400,"height":204,"caption":"op-amp integrator"},{"@type":"WebPage","@id":"https://www.electronics-tutorials.ws/opamp/opamp_6.html#webpage","url":"https://www.electronics-tutorials.ws/opamp/opamp_6.html","name":"Op-amp Integrator, Operational Amplifier Integrator","isPartOf":{"@id":"https://www.electronics-tutorials.ws/#website"},"primaryImageOfPage":{"@id":"https://www.electronics-tutorials.ws/opamp/opamp_6.html#primaryimage"},"datePublished":"2013-08-24T06:25:58+00:00","dateModified":"2020-02-19T08:16:11+00:00","author":{"@id":"https://www.electronics-tutorials.ws/#/schema/person/b12c33e418ba206f85cf65c7cbcd9660"},"description":"Electronics Tutorial about the Op-amp Integrator circuit which uses an Operational Amplifier to Integrate the input signal","breadcrumb":{"@id":"https://www.electronics-tutorials.ws/opamp/opamp_6.html#breadcrumb"},"inLanguage":"en-GB","potentialAction":[{"@type":"ReadAction","target":["https://www.electronics-tutorials.ws/opamp/opamp_6.html"]}]},{"@type":"BreadcrumbList","@id":"https://www.electronics-tutorials.ws/opamp/opamp_6.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.electronics-tutorials.ws/"},{"@type":"ListItem","position":2,"name":"The Integrator Amplifier"}]},{"@type":"Person","@id":"https://www.electronics-tutorials.ws/#/schema/person/b12c33e418ba206f85cf65c7cbcd9660","name":"Wayne Storr","description":"Creator and writer of Basic Electronics Tutorials and generally a good guy.","sameAs":["https://www.electronics-tutorials.ws"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="dns-prefetch" href="https://v0.wordpress.com/">
+<link rel="alternate" type="application/rss+xml" title="Basic Electronics Tutorials » The Integrator Amplifier Comments Feed" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html/feed">
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.electronics-tutorials.ws\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.9"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+</script><script src="./Op-amp Integrator, Operational Amplifier Integrator_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="print-css-0" href="./Op-amp Integrator, Operational Amplifier Integrator_files/print-style.css" type="text/css" media="print">
+<link rel="stylesheet" id="all-css-0" href="./Op-amp Integrator, Operational Amplifier Integrator_files/saved_resource" type="text/css" media="all">
+<style id="wp-block-library-inline-css">
+.has-text-align-justify{text-align:justify;}
+</style>
+<link rel="stylesheet" id="screen-css-0" href="./Op-amp Integrator, Operational Amplifier Integrator_files/style.css" type="text/css" media="screen">
+<style id="global-styles-inline-css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel="stylesheet" id="all-css-2" href="./Op-amp Integrator, Operational Amplifier Integrator_files/saved_resource(1)" type="text/css" media="all">
+<script type="text/javascript" src="./Op-amp Integrator, Operational Amplifier Integrator_files/saved_resource(2)"></script><link rel="https://api.w.org/" href="https://www.electronics-tutorials.ws/wp-json/"><link rel="alternate" type="application/json" href="https://www.electronics-tutorials.ws/wp-json/wp/v2/posts/2089"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.electronics-tutorials.ws/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.electronics-tutorials.ws/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.9">
+<link rel="shortlink" href="https://wp.me/saqSIX-opamp_6">
+<link rel="alternate" type="application/json+oembed" href="https://www.electronics-tutorials.ws/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.electronics-tutorials.ws%2Fopamp%2Fopamp_6.html">
+<link rel="alternate" type="text/xml+oembed" href="https://www.electronics-tutorials.ws/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.electronics-tutorials.ws%2Fopamp%2Fopamp_6.html&amp;format=xml">
+<style type="text/css">img#wpstats{display:none}</style>
+				<style type="text/css">
+				/* If html does not have either class, do not show lazy loaded images. */
+				html:not( .jetpack-lazy-images-js-enabled ):not( .js ) .jetpack-lazy-image {
+					display: none;
+				}
+			</style>
+			<script>
+				document.documentElement.classList.add(
+					'jetpack-lazy-images-js-enabled'
+				);
+			</script>
+		<link rel="icon" href="https://www.electronics-tutorials.ws/wp-content/uploads/2016/04/cropped-etuts-orb-logo.png?fit=32%2C32" sizes="32x32">
+<link rel="icon" href="https://www.electronics-tutorials.ws/wp-content/uploads/2016/04/cropped-etuts-orb-logo.png?fit=192%2C192" sizes="192x192">
+<link rel="apple-touch-icon" href="https://www.electronics-tutorials.ws/wp-content/uploads/2016/04/cropped-etuts-orb-logo.png?fit=180%2C180">
+<meta name="msapplication-TileImage" content="https://www.electronics-tutorials.ws/wp-content/uploads/2016/04/cropped-etuts-orb-logo.png?fit=270%2C270">
+<link rel="stylesheet" type="text/css" id="wp-custom-css" href="./Op-amp Integrator, Operational Amplifier Integrator_files/saved_resource(3)">
+    <style>
+        .affix-top {
+            position: relative;
+        }
+
+        .affix {
+            top: 130px;
+        }
+
+        .affix,
+        .affix-bottom {
+            width: 350px;
+        }
+
+        .affix-bottom {
+            position: absolute;
+        }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="./Op-amp Integrator, Operational Amplifier Integrator_files/js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-2394600-1');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NMNZ3NH');
+    </script>
+    <!-- End Google Tag Manager -->
+
+
+<script>(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"rua.upush":"false","rua.cpush":"false","rua.upre":"false","rua.cpre":"false","rua.uprl":"false","rua.cprl":"false","rua.cprf":"false","rua.trans":"","rua.cook":"false","rua.ims":"false","rua.ufprl":"false","rua.cfprl":"false","rua.isuxp":"false","rua.texp":"norulematch"}]);</script>
+                              <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="RQ3FU-5A7KG-SP92X-UZK5S-RALVC",function(){function e(){if(!o){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,i.parentNode.appendChild(e),o=!0}}function t(e){o=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(i.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",i.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"RQ3FU-5A7KG-SP92X-UZK5S-RALVC";var i=document.currentScript||document.getElementsByTagName("script")[0],o=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!o)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),i.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="kgxda2tinjjtuyqfkpmq-f-e58e5f785-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"32","ak.cp":"640744","ak.ai":parseInt("418900",10),"ak.ol":"0","ak.cr":25,"ak.ipv":4,"ak.proto":"h2","ak.rid":"4bfd003","ak.r":26109,"ak.a2":n,"ak.m":"a","ak.n":"essl","ak.bpcip":"81.174.48.0","ak.cport":64808,"ak.gh":"95.101.114.4","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1644516313","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==0YJOjYDx9bTt2hV0yyV2+j4NC18RHvtNa7yFWUzVN+bGLhAI7XcVZunPqs/MyNlP6hMV4C3dYDBMXXRx0RstfYwQxj3Yc7TX+OEONhyj9V7TFX4dmrt5BHOGe4tNU7kqE4rDDeZ9wsEabpPvCZclNH8fmYiX0qOuRMdMlk96Kn1P1sdjeFqattOGQdYAvQG68T6lqoPMTghrmdVoflrFlC31pQMHJdnZ/OIBYK9/t8ctmQTYgMTOy1UKhEJ4WbawUIxpziXhKqTOtGz8l1amMsVz/PE4rZkvk+RH07ahnLs50Avtf0tqDgmlhAdjAfhFoDUuP4RtevQycMfGDW1aJmnsKPUSwtVGzGiZ39CyrlOPqnV3OPgReWAPze+3qODpsFSPRvq+mqCXhnPF4YbEf3+b/SpoL1R07ZYs5IvcU6Y=","ak.pv":"87","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script><link href="./Op-amp Integrator, Operational Amplifier Integrator_files/RQ3FU-5A7KG-SP92X-UZK5S-RALVC" rel="preload" as="script"><script>bazadebezolkohpepadr="670294414"</script><script type="text/javascript" src="./Op-amp Integrator, Operational Amplifier Integrator_files/27f3e13e" defer=""></script><script id="boomr-scr-as" src="./Op-amp Integrator, Operational Amplifier Integrator_files/RQ3FU-5A7KG-SP92X-UZK5S-RALVC" async=""></script></head>
+<body style="overflow: auto;">
+
+<div id="wallpaper_image"></div>
+
+<!-- Google Tag Manager -->
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-5LCG4G"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMNZ3NH"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5LCG4G');</script>
+<!-- End Google Tag Manager -->
+
+
+<!-- Overlay Menu -->
+<div class="overlay-menu hidden-xs">
+    <div class="overlay-head clearfix">
+        <a href="https://www.electronics-tutorials.ws/"><img width="280" height="45" loading="lazy" src="./Op-amp Integrator, Operational Amplifier Integrator_files/etuts-lg-white.png" alt="Electronics Tutorials White Logo"></a>
+        <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#" class="close">X</a>
+    </div>
+    <div class="overlay-cont">
+		
+<div class="search-wrap">
+    <div class="search-input-wrap">
+        <form method="get" id="searchform" action="https://www.electronics-tutorials.ws/" class="clearfix">
+            <input type="text" name="s" id="s" class="search-input" value="">
+            <button type="submit"><div class="search-btn"></div></button>
+        </form>
+    </div>
+</div>    </div>
+</div>
+<!-- End -->
+
+<div class="cookie-container"></div>
+<div id="topBar" class="top-bar-1-wrap mbile" style="position: fixed; top: 0px; width: 100%;">
+    <div class="container">
+        <div class="row">
+            <div class="menu col-xs-3 col-sm-4 col-md-4">
+                <div id="show" class="orb"></div>
+            </div>
+            <div class="main-logo single col-xs-6 col-sm-4 col-md-4">
+                <a href="https://www.electronics-tutorials.ws/">
+                    <img width="218" height="35" loading="lazy" src="./Op-amp Integrator, Operational Amplifier Integrator_files/main-logo.png" alt="Electronics Tutorials Logo"></a>
+            </div>
+            <div class="col-xs-3 col-sm-4 col-md-4">
+                <div class="search mbile"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="top-bar-1-wrap dsktop">
+    <div class="topbar-most clearfix">
+        <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="subscribe-login">
+				                    <a class="subscribe-button subscribe-login" href="https://www.electronics-tutorials.ws/register">Register to download premium content!</a>
+				            </div>
+        </div>
+        <div class="main-logo col-xs-4 col-sm-4 col-md-4">
+            <a href="https://www.electronics-tutorials.ws/">
+                <img width="215" height="35" loading="lazy" src="./Op-amp Integrator, Operational Amplifier Integrator_files/main-logo(1).png" alt="Electronics Tutorials Logo"></a>
+        </div>
+        <div class="for-overlay col-xs-4 col-sm-4 col-md-4" data-mode="search">
+            <div class="search"></div>
+        </div>
+    </div>
+    <div class="sub-top-bar dsk">
+        <div class="hidden-xs clearfix">
+
+            <div class="col-b">
+
+            </div>
+
+            <div class="col-a">
+				<ul id="main-menu" class="menu"><li id="menu-item-3799" class="menu-item-has-children"><a title="Electronics Tutorial Sections">Tutorials</a>
+<ul class="sub-menu" style="display: none;">
+	<li><ul class="container"><li id="menu-item-3628"><a title="Tutorials about AC Circuits" href="https://www.electronics-tutorials.ws/accircuits/ac-waveform.html">AC Circuits</a></li><li id="menu-item-3629"><a title="Tutorials about Amplifiers" href="https://www.electronics-tutorials.ws/amplifier/amp_1.html">Amplifiers</a></li><li id="menu-item-3630"><a title="Tutorials about Attenuators" href="https://www.electronics-tutorials.ws/attenuators/attenuator.html">Attenuators</a></li><li id="menu-item-3631"><a title="Tutorials about Binary Logic" href="https://www.electronics-tutorials.ws/binary/bin_1.html">Binary Numbers</a></li><li id="menu-item-3632"><a title="Tutorials about Boolean Algebra" href="https://www.electronics-tutorials.ws/boolean/bool_1.html">Boolean Algebra</a></li><li id="menu-item-3633"><a title="Tutorials about Capacitors" href="https://www.electronics-tutorials.ws/capacitor/cap_1.html">Capacitors</a></li><li id="menu-item-3634"><a title="Tutorials about Combinational Logic" href="https://www.electronics-tutorials.ws/combination/comb_1.html">Combinational Logic</a></li><li id="menu-item-3635"><a title="Tutorials about Digital Counters" href="https://www.electronics-tutorials.ws/counter/count_1.html">Counters</a></li><li id="menu-item-3636"><a title="Tutorials about DC Circuits" href="https://www.electronics-tutorials.ws/dccircuits/dcp_1.html">DC Circuits</a></li><li id="menu-item-3637"><a title="Tutorials about Diodes" href="https://www.electronics-tutorials.ws/diode/diode_1.html">Diodes</a></li><li id="menu-item-3638"><a title="Tutorials about Electromagnetism" href="https://www.electronics-tutorials.ws/electromagnetism/magnetism.html">Electromagnetism</a></li><li id="menu-item-3639"><a title="Tutorials about Passive and Active Filters" href="https://www.electronics-tutorials.ws/filter/filter_1.html">Filters</a></li><li id="menu-item-3641"><a title="Tutorials about Inductors and Inductance" href="https://www.electronics-tutorials.ws/inductor/inductor.html">Inductors</a></li><li id="menu-item-3640"><a title="Tutorials about Input/Output Devices" href="https://www.electronics-tutorials.ws/io/io_1.html">Input/Output Devices</a></li><li id="menu-item-3642"><a title="Tutorials about Digital Logic Gates" href="https://www.electronics-tutorials.ws/logic/logic_1.html">Logic Gates</a></li><li id="menu-item-3643"><a title="Miscellaneous Tutorials" href="https://www.electronics-tutorials.ws/blog/pulse-width-modulation.html">Miscellaneous Circuits</a></li><li id="menu-item-3644"><a title="Tutorials about Operational Amplifiers" href="https://www.electronics-tutorials.ws/opamp/opamp_1.html">Operational Amplifiers</a></li><li id="menu-item-3645"><a title="Tutorials about Oscillators" href="https://www.electronics-tutorials.ws/oscillator/oscillators.html">Oscillator</a></li><li id="menu-item-3646"><a title="Tutorials about Power Electronics" href="https://www.electronics-tutorials.ws/power/thyristor.html">Power Electronics</a></li><li id="menu-item-9648"><a title="Tutorials about Power Supplies" href="https://www.electronics-tutorials.ws/supplies/power-supplies-for-beginners-part-1.html">Power Supplies</a></li><li id="menu-item-3647"><a title="Tutorials about Resistor-Capacitor Circuits" href="https://www.electronics-tutorials.ws/rc/rc_1.html">RC Networks</a></li><li id="menu-item-3648"><a title="Tutorials about Resistors" href="https://www.electronics-tutorials.ws/resistor/res_1.html">Resistors</a></li><li id="menu-item-3649"><a title="Tutorials about Sequential Logic" href="https://www.electronics-tutorials.ws/sequential/seq_1.html">Sequential Logic</a></li><li id="menu-item-3650"><a title="Tutorials about Electronic Systems" href="https://www.electronics-tutorials.ws/systems/electronic-system.html">Systems</a></li><li id="menu-item-3651"><a title="Tutorials about Transformers" href="https://www.electronics-tutorials.ws/transformer/transformer-basics.html">Transformers</a></li><li id="menu-item-3652"><a title="Tutorials about Transistors" href="https://www.electronics-tutorials.ws/transistor/tran_1.html">Transistors</a></li><li id="menu-item-3653"><a title="Tutorials about Waveform Generators" href="https://www.electronics-tutorials.ws/waveforms/waveforms.html">Waveform Generators</a></li></ul></li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</ul>
+</li>
+<li id="menu-item-12406" class="highlighted-item"><a href="https://www.electronics-tutorials.ws/category/premium">Premium content</a></li>
+<li id="menu-item-10774"><a href="https://www.electronics-tutorials.ws/further-education">Further Education</a></li>
+<li id="menu-item-32"><a title="Explore our Sitemap" href="https://www.electronics-tutorials.ws/sitemap">Sitemap</a></li>
+<li id="menu-item-27"><a title="Get in Touch" href="https://www.electronics-tutorials.ws/contact">Contact Us</a></li>
+<li id="menu-item-10499" class="pll-parent-menu-item current-menu-parent menu-item-has-children"><a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#pll_switcher"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAt1BMVEWSmb66z+18msdig8La3u+tYX9IaLc7W7BagbmcUW+kqMr/q6n+//+hsNv/lIr/jIGMnNLJyOP9/fyQttT/wb3/////aWn+YWF5kNT0oqz0i4ueqtIZNJjhvt/8gn//WVr/6+rN1+o9RKZwgcMPJpX/VFT9UEn+RUX8Ozv2Ly+FGzdYZrfU1e/8LS/lQkG/mbVUX60AE231hHtcdMb0mp3qYFTFwNu3w9prcqSURGNDaaIUMX5FNW5wYt7AAAAAjklEQVR4AR3HNUJEMQCGwf+L8RR36ajR+1+CEuvRdd8kK9MNAiRQNgJmVDAt1yM6kSzYVJUsPNssAk5N7ZFKjVNFAY4co6TAOI+kyQm+LFUEBEKKzuWUNB7rSH/rSnvOulOGk+QlXTBqMIrfYX4tSe2nP3iRa/KNK7uTmWJ5a9+erZ3d+18od4ytiZdvZyuKWy8o3UpTVAAAAABJRU5ErkJggg==" alt="English" width="16" height="11" style="width: 16px; height: 11px;"><span style="margin-left:0.3em;">English</span></a>
+<ul class="sub-menu" style="display: none;">
+	<li><ul class="container"><li id="menu-item-10499-en" class="lang-item lang-item-129 lang-item-en current-lang lang-item-first"><a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html" hreflang="en-GB" lang="en-GB"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAt1BMVEWSmb66z+18msdig8La3u+tYX9IaLc7W7BagbmcUW+kqMr/q6n+//+hsNv/lIr/jIGMnNLJyOP9/fyQttT/wb3/////aWn+YWF5kNT0oqz0i4ueqtIZNJjhvt/8gn//WVr/6+rN1+o9RKZwgcMPJpX/VFT9UEn+RUX8Ozv2Ly+FGzdYZrfU1e/8LS/lQkG/mbVUX60AE231hHtcdMb0mp3qYFTFwNu3w9prcqSURGNDaaIUMX5FNW5wYt7AAAAAjklEQVR4AR3HNUJEMQCGwf+L8RR36ajR+1+CEuvRdd8kK9MNAiRQNgJmVDAt1yM6kSzYVJUsPNssAk5N7ZFKjVNFAY4co6TAOI+kyQm+LFUEBEKKzuWUNB7rSH/rSnvOulOGk+QlXTBqMIrfYX4tSe2nP3iRa/KNK7uTmWJ5a9+erZ3d+18od4ytiZdvZyuKWy8o3UpTVAAAAABJRU5ErkJggg==" alt="English" width="16" height="11" style="width: 16px; height: 11px;"><span style="margin-left:0.3em;">English</span></a></li><li id="menu-item-10499-de" class="lang-item lang-item-247 lang-item-de"><a href="https://www.electronics-tutorials.ws/de/operationsverstarker/integrierverstaerker.html" hreflang="de-DE" lang="de-DE"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAABLElEQVR4AY2QgUZEQRSGz9ydmzbYkBWABBJYABHEFhJ6m0WP0DMEQNIr9AKrN8ne2Tt3Zs7MOdOZmRBEv+v34Tvub9R6fdNlAzU+snSME/wdjbjbbJ6EiEg6BA8102QbjKNpoMzw8v6qD/sOALbbT2MC1NgaAWOKOgxf5czY+4dbAX2G/THzcozLrvPV85IQyqVz0rvg2p9Pei4HjzSsiFbV4JgyhhxCjpGdZ0RhdikLB9/b8Qig7MkpSovR7Cp59q6CazaNFiTt4J82o6uvdMVwTsztKTXZod4jgOJJuqNAjFyGrBR8gM6XwKfIC4KanBSTZ0rClKh08D9DFh3egW7ebH7NcRDQWrz9rM2Ne+mDOXB2mZJ8agL19nwxR2iZXGm1gDbQKhDjd4yHb2oW/KR8xHicAAAAAElFTkSuQmCC" alt="Deutsch" width="16" height="11" style="width: 16px; height: 11px;"><span style="margin-left:0.3em;">Deutsch</span></a></li><li id="menu-item-10499-pl" class="lang-item lang-item-575 lang-item-pl"><a href="https://www.electronics-tutorials.ws/pl/operacyjnych/wzmacniacz-caikujacego.html" hreflang="pl-PL" lang="pl-PL"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAPFBMVEX/8fH67Ozz5ubt4OD+/v77+/v39/fo2Nj5AAD+jo79bW36X1/4T0/5QUHhAAD3MzP0Kir2ICDzERHtAACO5h0ZAAAAQUlEQVR4AQXBsRHDMAwAMTzNwvuvm5MVIECIZIEQZ4EQ7AAIGBABegsR+Z7VxChx7hCjhIwYJcTydcgQ1gv8Lhd/58kJTU6WtnIAAAAASUVORK5CYII=" alt="Polski" width="16" height="11" style="width: 16px; height: 11px;"><span style="margin-left:0.3em;">Polski</span></a></li></ul></li>
+	
+	
+</ul>
+</li>
+<li id="menu-item-11692" class="menu-item-float-right"><a href="https://www.electronics-tutorials.ws/log-in">Log In</a></li>
+<li id="menu-item-12407" class="menu-item-float-right"><a href="https://www.electronics-tutorials.ws/register">Register</a></li>
+</ul>            </div>
+        </div>
+    </div>
+</div>
+<div id="main">
+
+	    <div class="mb-feature-announcement clearfix">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <a href="https://www.electronics-tutorials.ws/register">Register to download premium content!</a>
+        </div>
+    </div>
+    <div class="body-frame">
+<div class="side-menu mbile">
+    <div id="side-menu-head" class="side-menu-head clearfix">
+        <a href="https://www.electronics-tutorials.ws/"><img width="280" height="45" loading="lazy" class="logo" src="./Op-amp Integrator, Operational Amplifier Integrator_files/etuts-lg-white.png" alt="Electronics Tutorials White Logo"></a>
+        <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#" class="close">X</a>
+    </div>
+    <div class="the-list">
+
+        
+<div class="search-wrap">
+    <div class="search-input-wrap">
+        <form method="get" id="searchform" action="https://www.electronics-tutorials.ws/" class="clearfix">
+            <input type="text" name="s" id="s" class="search-input" value="">
+            <button type="submit"><div class="search-btn"></div></button>
+        </form>
+    </div>
+</div>        <ul class="mobile-lang">	<li class="lang-item lang-item-247 lang-item-de lang-item-first"><a lang="de-DE" hreflang="de-DE" href="https://www.electronics-tutorials.ws/de/operationsverstarker/integrierverstaerker.html"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAABLElEQVR4AY2QgUZEQRSGz9ydmzbYkBWABBJYABHEFhJ6m0WP0DMEQNIr9AKrN8ne2Tt3Zs7MOdOZmRBEv+v34Tvub9R6fdNlAzU+snSME/wdjbjbbJ6EiEg6BA8102QbjKNpoMzw8v6qD/sOALbbT2MC1NgaAWOKOgxf5czY+4dbAX2G/THzcozLrvPV85IQyqVz0rvg2p9Pei4HjzSsiFbV4JgyhhxCjpGdZ0RhdikLB9/b8Qig7MkpSovR7Cp59q6CazaNFiTt4J82o6uvdMVwTsztKTXZod4jgOJJuqNAjFyGrBR8gM6XwKfIC4KanBSTZ0rClKh08D9DFh3egW7ebH7NcRDQWrz9rM2Ne+mDOXB2mZJ8agL19nwxR2iZXGm1gDbQKhDjd4yHb2oW/KR8xHicAAAAAElFTkSuQmCC" alt="Deutsch" width="16" height="11" style="width: 16px; height: 11px;"><span style="margin-left:0.3em;">Deutsch</span></a></li>
+	<li class="lang-item lang-item-575 lang-item-pl"><a lang="pl-PL" hreflang="pl-PL" href="https://www.electronics-tutorials.ws/pl/operacyjnych/wzmacniacz-caikujacego.html"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAPFBMVEX/8fH67Ozz5ubt4OD+/v77+/v39/fo2Nj5AAD+jo79bW36X1/4T0/5QUHhAAD3MzP0Kir2ICDzERHtAACO5h0ZAAAAQUlEQVR4AQXBsRHDMAwAMTzNwvuvm5MVIECIZIEQZ4EQ7AAIGBABegsR+Z7VxChx7hCjhIwYJcTydcgQ1gv8Lhd/58kJTU6WtnIAAAAASUVORK5CYII=" alt="Polski" width="16" height="11" style="width: 16px; height: 11px;"><span style="margin-left:0.3em;">Polski</span></a></li>
+</ul>
+
+        <ul id="user-menu" class="mobile-menu-links"><li id="menu-item-12408"><a href="https://www.electronics-tutorials.ws/register">Register</a></li>
+<li id="menu-item-11846"><a href="https://www.electronics-tutorials.ws/log-in">Log In</a></li>
+</ul>            <ul class="mn-sections">
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/accircuits"> AC Circuits</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/amplifier"> Amplifiers</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/attenuators"> Attenuators</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/binary"> Binary Numbers</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/boolean"> Boolean Algebra</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/capacitor"> Capacitors</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/combination"> Combinational Logic</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/connectivity"> Connectivity</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/counter"> Counters</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/dccircuits"> DC Circuits</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/diode"> Diodes</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/electromagnetism"> Electromagnetism</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/filter"> Filters</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/inductor"> Inductors</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/io"> Input/Output Devices</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/logic"> Logic Gates</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/blog"> Miscellaneous Circuits</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/opamp"> Operational Amplifiers</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/oscillator"> Oscillator</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/power"> Power Electronics</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/supplies"> Power Supplies</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/premium"> Premium</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/rc"> RC Networks</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/resistor"> Resistors</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/resources"> Resources</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/sequential"> Sequential Logic</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/systems"> Systems</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/transformer"> Transformers</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/transistor"> Transistors</a>
+
+                                            </li>
+                                    <li>
+                        <a href="https://www.electronics-tutorials.ws/category/waveforms"> Waveform Generators</a>
+
+                                            </li>
+                            </ul>
+        
+        <ul id="mobile-menu" class="mobile-menu-links"><li id="menu-item-12409" class="highlighted-item"><a href="https://www.electronics-tutorials.ws/category/premium">Premium Content</a></li>
+<li id="menu-item-11852"><a href="https://www.electronics-tutorials.ws/further-education">Further Education</a></li>
+<li id="menu-item-11853"><a href="https://www.electronics-tutorials.ws/sitemap">Sitemap</a></li>
+<li id="menu-item-11851"><a href="https://www.electronics-tutorials.ws/contact">Contact Us</a></li>
+</ul>    </div>
+</div>
+    <div id="home-sticky-ad-wrapper" class="home-sticky-ad-wrapper">
+        <div class="home-sticky-ad">
+            <div id="div-gpt-ad-sticky-left">
+                <script type="text/javascript">
+                    googletag.cmd.push(function () {
+                        googletag.display('div-gpt-ad-sticky-left');
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-cont">
+    <div class="mask-cont clearfix">
+    <div class="single-page content-wrap container">
+        <div class="row-cnt row">
+
+            <div class="home-top-ads">
+				
+									    <div class="billboard-wrapper">
+        <div id="div-gpt-ad-billboard-smartphonebanner">
+            <script type="text/javascript">
+                googletag.cmd.push(function () {
+                    googletag.display('div-gpt-ad-billboard-smartphonebanner');
+                });
+            </script>
+        </div>
+    </div>
+
+					            </div>
+
+            <div class="col-sm-12 col-md-12">
+                <div class="breadcrumb">
+					<!-- Breadcrumb NavXT 7.0.1 -->
+<a title="Back Home" href="https://www.electronics-tutorials.ws/" class="home">Home</a><span class="separator">&nbsp;/&nbsp;</span><a title="Operational Amplifiers Section" href="https://www.electronics-tutorials.ws/category/opamp" class="taxonomy category">Operational Amplifiers</a><span class="separator">&nbsp;/&nbsp;</span>The Integrator Amplifier                </div>
+            </div>
+            <div class="col-md-8 clearboth">
+
+				                
+                    <div class="head-box clearfix">
+                        <div class="col-sm-6 col-md-6 no-padd">
+                            <div class="thumb-feat">
+								                                    <img width="355" height="226" src="./Op-amp Integrator, Operational Amplifier Integrator_files/opamp26.gif" alt="The Integrator Amplifier">
+<!---->
+<!--                                    <div class="preload-image"-->
+<!--                                         data-preload="true"-->
+<!--                                         data-dir="--><!--"-->
+<!--                                         data-src="--><!--"></div>-->
+								                            </div>
+                        </div>
+                        <div class="desc col-sm-6 col-md-6">
+							<h1>The Integrator Amplifier</h1>							<p>The integrator Op-amp produces an output voltage that is both proportional to the amplitude and duration of the input signal</p>
+                        </div>
+
+                        <div class="social_box_buttons-excerpt">
+	                                                </div>
+                    </div>
+
+					
+                    <div class="section row">
+                        <div class="single-wrap col-md-12">
+                            <div class="content-cont">
+								<p>Operational amplifiers can be used as part of a positive or negative feedback amplifier or as an adder or subtractor type circuit using just pure resistances in both the input and the feedback loop.</p>
+<p>But what if we where to change the purely resistive (&nbsp;<span class="ntxt">Rƒ</span>&nbsp;) feedback element of an inverting amplifier with a frequency dependant complex element that has a reactance, (&nbsp;<span class="ntxt">X</span>&nbsp;), such as a Capacitor, C. What would be the effect on the op-amps voltage gain transfer function over its frequency range as a result of this complex impedance.</p>
+<p>By replacing this feedback resistance with a capacitor we now have an RC Network connected across the operational amplifiers feedback path producing another type of operational amplifier circuit commonly called an <strong>Op-amp Integrator</strong> circuit as shown below.</p><div class="row double-ads"><div class="col-sm-12 col-md-6"><div id="div-gpt-ad-content-top-left"></div></div><div class="col-sm-12 col-md-6"><div id="div-gpt-ad-content-top-right"></div></div></div>
+<h3>Op-amp Integrator Circuit</h3>
+<p class="text-center"><img title="Op-amp Integrator Amplifier Circuit" src="./Op-amp Integrator, Operational Amplifier Integrator_files/opamp-opamp26.gif" alt="op-amp integrator amplifier circuit" width="400" height="204" data-lazy-src="/wp-content/uploads/2018/05/opamp-opamp26.gif?is-pending-load=1" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class=" jetpack-lazy-image"><noscript><img title="Op-amp Integrator Amplifier Circuit" src="/wp-content/uploads/2018/05/opamp-opamp26.gif" alt="op-amp integrator amplifier circuit" width="400" height="204"></noscript></p>
+<div class="bottomspace"></div>
+<p>As its name implies, the <strong>Op-amp Integrator</strong> is an operational amplifier circuit that performs the mathematical operation of <strong>Integration</strong>, that is we can cause the output to respond to changes in the input voltage over time as the op-amp integrator produces an <em>output voltage which is proportional to the integral of the input voltage</em>.</p>
+<p>In other words the magnitude of the output signal is determined by the length of time a voltage is present at its input as the current through the feedback loop charges or discharges the capacitor as the required negative feedback occurs through the capacitor.</p>
+<p>When a step voltage, <span class="ntxt">Vin</span> is firstly applied to the input of an integrating amplifier, the uncharged capacitor <span class="ntxt">C</span> has very little resistance and acts a bit like a short circuit allowing maximum current to flow via the input resistor, <span class="ntxt">Rin</span> as potential difference exists between the two plates. No current flows into the amplifiers input and point <span class="ntxt">X</span> is a virtual earth resulting in zero output. As the impedance of the capacitor at this point is very low, the gain ratio of <span class="ntxt">X<sub>C</sub>/R<sub>IN</sub></span> is also very small giving an overall voltage gain of less than one, ( voltage follower circuit ).</p>
+<p>As the feedback capacitor, <span class="ntxt">C</span> begins to charge up due to the influence of the input voltage, its impedance <span class="ntxt">Xc</span> slowly increase in proportion to its rate of charge. The capacitor charges up at a rate determined by the RC time constant, ( <span class="mtxt">τ</span> ) of the series RC network. Negative feedback forces the op-amp to produce an output voltage that maintains a virtual earth at the op-amp’s inverting input.</p>
+<p>Since the capacitor is connected between the op-amp’s inverting input (which is at virtual ground potential) and the op-amp’s output (which is now negative), the potential voltage, <span class="ntxt">Vc</span> developed across the capacitor slowly increases causing the charging current to decrease as the impedance of the capacitor increases. This results in the ratio of <span class="ntxt">Xc/Rin</span> increasing producing a linearly increasing ramp output voltage that continues to increase until the capacitor is fully charged.</p>
+<p>At this point the capacitor acts as an open circuit, blocking any more flow of DC current. The ratio of feedback capacitor to input resistor ( <span class="ntxt">X<sub>C</sub>/R<sub>IN</sub></span> ) is now infinite resulting in infinite gain. The result of this high gain (similar to the op-amps open-loop gain), is that the output of the amplifier goes into saturation as shown below. (Saturation occurs when the output voltage of the amplifier swings heavily to one voltage supply rail or the other with little or no control in between).</p>
+<p class="text-center"><img loading="eager" title="Op-amp Integrator Output" src="./Op-amp Integrator, Operational Amplifier Integrator_files/opamp-opamp27.gif" alt="op-amp integrator output" width="421" height="171" class="jetpack-lazy-image jetpack-lazy-image--handled" data-lazy-loaded="1"><noscript><img loading="lazy" title="Op-amp Integrator Output" src="/wp-content/uploads/2018/05/opamp-opamp27.gif" alt="op-amp integrator output" width="421" height="171"></noscript></p>
+<div class="bottomspace"></div>
+<p>The rate at which the output voltage increases (the rate of change) is determined by the value of the resistor and the capacitor, “<span class="ntxt">RC time constant</span>“. By changing this <span class="ntxt">RC</span> time constant value, either by changing the value of the Capacitor, <span class="ntxt">C</span> or the Resistor, <span class="ntxt">R</span>, the time in which it takes the output voltage to reach saturation can also be changed for example.</p>
+<p class="text-center"><img loading="eager" title="Integrator Output Signal" src="./Op-amp Integrator, Operational Amplifier Integrator_files/opamp-opamp28.gif" alt="integrator output signal" width="421" height="171" class="jetpack-lazy-image jetpack-lazy-image--handled" data-lazy-loaded="1"><noscript><img loading="lazy" title="Integrator Output Signal" src="/wp-content/uploads/2018/05/opamp-opamp28.gif" alt="integrator output signal" width="421" height="171"></noscript></p>
+<div class="bottomspace"></div>
+<p>If we apply a constantly changing input signal such as a square wave to the input of an <strong>Integrator Amplifier</strong> then the capacitor will charge and discharge in response to changes in the input signal. This results in the output signal being that of a sawtooth waveform whose output is affected by the <span class="ntxt">RC</span> time constant of the resistor/capacitor combination because at higher frequencies, the capacitor has less time to fully charge. This type of circuit is also known as a <b>Ramp Generator</b> and the transfer function is given below.</p><div id="div-gpt-ad-content-middle"></div>
+<h3>Op-amp Integrator Ramp Generator</h3>
+<p class="text-center"><img loading="eager" title="Sawtooth Waveform" src="./Op-amp Integrator, Operational Amplifier Integrator_files/opamp-opamp47.gif" alt="sawtooth waveform" width="461" height="135" class="jetpack-lazy-image jetpack-lazy-image--handled" data-lazy-loaded="1"><noscript><img loading="lazy" title="Sawtooth Waveform" src="/wp-content/uploads/2018/05/opamp-opamp47.gif" alt="sawtooth waveform" width="461" height="135"></noscript></p>
+<div class="bottomspace"></div>
+<p>We know from first principals that the voltage on the plates of a capacitor is equal to the charge on the capacitor divided by its capacitance giving <span class="ntxt">Q/C</span>. Then the voltage across the capacitor is output <span class="ntxt">Vout</span> therefore: <span class="ntxt">-Vout&nbsp;=&nbsp;Q/C</span>. If the capacitor is charging and discharging, the rate of charge of voltage across the capacitor is given as:</p>
+<p class="text-center"><img loading="eager" title="Voltage Across Capacitor" src="./Op-amp Integrator, Operational Amplifier Integrator_files/opamp-opamp29a.gif" alt="voltage across a capacitor" width="361" height="141" class="jetpack-lazy-image jetpack-lazy-image--handled" data-lazy-loaded="1"><noscript><img loading="lazy" title="Voltage Across Capacitor" src="/wp-content/uploads/2018/05/opamp-opamp29a.gif" alt="voltage across a capacitor" width="361" height="141"></noscript></p>
+<div class="bottomspace"></div>
+<p>But <span class="ntxt">dQ/dt</span> is electric current and since the node voltage of the integrating op-amp at its inverting input terminal is zero, <span class="ntxt">X = 0</span>, the input current <span class="ntxt">I(in)</span> flowing through the input resistor, <span class="ntxt">Rin</span> is given as:</p>
+<p class="text-center"><img loading="eager" title="Op-amp Integrator Resistor Current" src="./Op-amp Integrator, Operational Amplifier Integrator_files/opamp-opamp29.gif" alt="op-amp integrator resistor current" width="192" height="61" class="jetpack-lazy-image jetpack-lazy-image--handled" data-lazy-loaded="1"><noscript><img loading="lazy" title="Op-amp Integrator Resistor Current" src="/wp-content/uploads/2018/05/opamp-opamp29.gif" alt="op-amp integrator resistor current" width="192" height="61"></noscript></p>
+<div class="bottomspace"></div>
+<p>The current flowing through the feedback capacitor <span class="ntxt">C</span> is given as:</p>
+<p class="text-center"><img loading="eager" title="Integrator Capacitor Current" src="./Op-amp Integrator, Operational Amplifier Integrator_files/opamp-opamp30.gif" alt="integrator capacitor current" width="389" height="60" class="jetpack-lazy-image jetpack-lazy-image--handled" data-lazy-loaded="1"><noscript><img loading="lazy" title="Integrator Capacitor Current" src="/wp-content/uploads/2018/05/opamp-opamp30.gif" alt="integrator capacitor current" width="389" height="60"></noscript></p>
+<div class="bottomspace"></div>
+<p>Assuming that the input impedance of the op-amp is infinite (ideal op-amp), no current flows into the op-amp terminal. Therefore, the nodal equation at the inverting input terminal is given as:</p>
+<p class="text-center"><img loading="eager" title="Integrator Equation" src="./Op-amp Integrator, Operational Amplifier Integrator_files/opamp-opamp31.gif" alt="integrator equation" width="254" height="157" class="jetpack-lazy-image jetpack-lazy-image--handled" data-lazy-loaded="1"><noscript><img loading="lazy" title="Integrator Equation" src="/wp-content/uploads/2018/05/opamp-opamp31.gif" alt="integrator equation" width="254" height="157"></noscript></p>
+<div class="bottomspace"></div>
+<p>From which we derive an ideal voltage output for the <strong>Op-amp Integrator</strong> as:</p>
+<div class="equation" style="width: 420px;"><img loading="eager" title="Op-amp Integrator Equation" src="./Op-amp Integrator, Operational Amplifier Integrator_files/opamp-opamp32.gif" alt="op-amp integrator equation" width="377" height="61" class="jetpack-lazy-image jetpack-lazy-image--handled" data-lazy-loaded="1"><noscript><img loading="lazy" title="Op-amp Integrator Equation" src="/wp-content/uploads/2018/05/opamp-opamp32.gif" alt="op-amp integrator equation" width="377" height="61"></noscript></div>
+<p>To simplify the math’s a little, this can also be re-written as:</p>
+<p class="text-center"><img loading="eager" title="Simplified Op-amp Integrator Equation" src="./Op-amp Integrator, Operational Amplifier Integrator_files/opamp-opamp33.gif" alt="simplified integrator equation" width="196" height="60" class="jetpack-lazy-image jetpack-lazy-image--handled" data-lazy-loaded="1"><noscript><img loading="lazy" title="Simplified Op-amp Integrator Equation" src="/wp-content/uploads/2018/05/opamp-opamp33.gif" alt="simplified integrator equation" width="196" height="60"></noscript></p>
+<div class="bottomspace"></div>
+<p>Where: <span class="ntxt">ω&nbsp;=&nbsp;2πƒ</span> and the output voltage <span class="ntxt">Vout</span> is a constant <span class="ntxt">1/RC</span> times the integral of the input voltage <span class="ntxt">V<sub>IN</sub></span> with respect to time.</p><div class="row double-ads"><div class="col-sm-12 col-md-6"><div id="div-gpt-ad-content-middle-2-left"></div></div><div class="col-sm-12 col-md-6"><div id="div-gpt-ad-content-middle-2-right"></div></div></div>
+<p>Thus the circuit has the transfer function of an inverting integrator with the gain constant of -1/RC. The minus sign (&nbsp;<span class="mtxt">–</span>&nbsp;) indicates a <span class="ntxt">180<sup>o</sup></span> phase shift because the input signal is connected directly to the inverting input terminal of the operational amplifier.</p>
+<h2>The AC or Continuous Op-amp Integrator</h2>
+<p>If we changed the above square wave input signal to that of a sine wave of varying frequency the <strong>Op-amp Integrator </strong> performs less like an integrator and begins to behave more like an active “Low Pass Filter”, passing low frequency signals while attenuating the high frequencies.</p>
+<p>At zero frequency (0Hz) or DC, the capacitor acts like an open circuit due to its reactance thus blocking any output voltage feedback. As a result very little negative feedback is provided from the output back to the input of the amplifier.</p>
+<p>Therefore with just a single capacitor, <span class="ntxt">C</span> in the feedback path, at zero frequency the op-amp is effectively connected as a normal open-loop amplifier with very high open-loop gain. This results in the op-amp becoming unstable cause undesirable output voltage conditions and possible voltage rail saturation.</p>
+<p>This circuit connects a high value resistance in parallel with a continuously charging and discharging capacitor. The addition of this feedback resistor, <span class="ntxt">R<sub>2</sub></span> across the capacitor, <span class="ntxt">C</span> gives the circuit the characteristics of an inverting amplifier with finite closed-loop voltage gain given by: <span class="ntxt">R<sub>2</sub>/R<sub>1</sub></span>.</p>
+<p>The result is at high frequencies the capacitor shorts out this feedback resistor, <span class="ntxt">R<sub>2</sub></span> due to the effects of capacitive reactance reducing the amplifiers gain. At normal operating frequencies the circuit acts as an standard integrator, while at very low frequencies approaching 0Hz, when <span class="ntxt">C</span> becomes open-circuited due to its reactance, the magnitude of the voltage gain is limited and controlled by the ratio of: <span class="ntxt">R<sub>2</sub>/R<sub>1</sub></span>.</p>
+<h3>The AC Op-amp Integrator with DC Gain Control</h3>
+<p class="text-center"><img loading="eager" title="AC Integrator Amplifier with DC Gain Control" src="./Op-amp Integrator, Operational Amplifier Integrator_files/opamp-opamp34.gif" alt="AC Integrator amplifier" width="520" height="204" class="jetpack-lazy-image jetpack-lazy-image--handled" data-lazy-loaded="1"><noscript><img loading="lazy" title="AC Integrator Amplifier with DC Gain Control" src="/wp-content/uploads/2018/05/opamp-opamp34.gif" alt="AC Integrator amplifier" width="520" height="204"></noscript></p>
+<div class="bottomspace"></div>
+<p>Unlike the DC integrator amplifier above whose output voltage at any instant will be the integral of a waveform so that when the input is a square wave, the output waveform will be triangular. For an AC integrator, a sinusoidal input waveform will produce another sine wave as its output which will be 90<sup>o</sup> out-of-phase with the input producing a cosine wave.</p>
+<p>Further more, when the input is triangular, the output waveform is also sinusoidal. This then forms the basis of a Active Low Pass Filter as seen before in the filters section tutorials with a corner frequency given as.</p>
+<p class="text-center"><img loading="eager" title="AC OP-amp Integrator Gain" src="./Op-amp Integrator, Operational Amplifier Integrator_files/opamp-opamp34a.gif" alt="op-amp integrator gain" width="436" height="229" class="jetpack-lazy-image jetpack-lazy-image--handled" data-lazy-loaded="1"><noscript><img loading="lazy" title="AC OP-amp Integrator Gain" src="/wp-content/uploads/2018/05/opamp-opamp34a.gif" alt="op-amp integrator gain" width="436" height="229"></noscript></p>
+<div class="bottomspace"></div>
+<p>In the next tutorial about Operational Amplifiers, we will look at another type of operational amplifier circuit which is the opposite or complement of the <strong>Op-amp Integrator</strong> circuit above called the Differentiator Amplifier.</p>
+<p>As its name implies, the differentiator amplifier produces an output signal which is the mathematical operation of differentiation, that is it produces a voltage output which is proportional to the input voltage’s rate-of-change and the current flowing through the input capacitor.</p>
+								                                <!-- Socialbox -->
+                                <div class="social_box_buttons">
+	                                                                </div>
+
+<!--                                <div class="row content-ad-wrapper">-->
+<!--                                    <div class="col-md-12 text-center">-->
+<!---->
+<!--                                        <div id='div-gpt-ad-content-bottom'>-->
+<!--                                            <script type='text/javascript'>-->
+<!--                                                googletag.cmd.push(function () {-->
+<!--                                                    googletag.display('div-gpt-ad-content-bottom');-->
+<!--                                                });-->
+<!--                                            </script>-->
+<!--                                        </div>-->
+<!---->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+                                <!-- End Socialbox -->
+								                                <div class="clearfix content-nav">
+                                    <div class="prev_next clearfix">
+										                                            <div class="pn-holder col-md-6 col-sm-6">
+                                                <div class="prev"><a href="https://www.electronics-tutorials.ws/opamp/opamp_5.html" rel="prev"><img src="./Op-amp Integrator, Operational Amplifier Integrator_files/arrow_alt_left_inv.png" alt="previous"><div><span>Previous</span><br>The Differential Amplifier</div></a></div>
+                                            </div>
+										                                            <div class="pn-holder col-md-6 col-sm-6">
+                                                <div class="next"><a href="https://www.electronics-tutorials.ws/opamp/opamp_7.html" rel="next"><div><span>Next</span><br>The Differentiator Amplifier</div><img src="./Op-amp Integrator, Operational Amplifier Integrator_files/arrow_alt_right_inv.png" alt="next"></a></div>
+                                            </div>
+										                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="single-page-content">
+						
+<div id="widgets_for_shortcodes" class="amr-widget-area"><div id="wp_simple_related_post-3" class="widgets wp_simple_related_post clearfix">            <div class="related-posts wrapper clearfix">
+                <div class="widgets">
+                    <h2 class="sidebar-title-cat">Read more Tutorials inOperational Amplifiers</h2>
+                    <div class="category box">
+                        <ul class="clearfix">
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/opamp_1.html">1. Operational Amplifier Basics</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/opamp_2.html">2. Inverting Operational Amplifier</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/opamp_3.html">3. Non-inverting Operational Amplifier</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/opamp_4.html">4. The Summing Amplifier</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/opamp_5.html">5. The Differential Amplifier</a></li>
+                                                                                            <li class="active"><a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html">6. The Integrator Amplifier</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/opamp_7.html">7. The Differentiator Amplifier</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/opamp_8.html">8. Operational Amplifiers Summary</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/op-amp-building-blocks.html">9. Operational Amplifier Building Blocks</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/op-amp-multivibrator.html">10. Op-amp Multivibrator</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/op-amp-comparator.html">11. Op-amp Comparator</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/op-amp-monostable.html">12. Op-amp Monostable</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/passive-averager.html">13. Passive Averager</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div></div>
+                    </div>
+
+					
+<div id="comments" class="comments-wrap clearfix">
+	<input type="hidden" name="has_view_more" id="has_view_more" value="1">
+	<input type="hidden" name="first_comment_page" id="first_comment_page" value="3">
+	<input type="hidden" name="recent_comment_page" id="recent_comment_page" value="">
+	<h2 class="comments-count">
+						95 Comments						<div class="toggle-close"></div>
+		<div class="toggle-open"></div>
+	</h2>
+	<div class="comment-content">
+		<div class="comment-form-cont">
+				<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"></h3><h2>Join the conversation</h2> <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#respond" style="display:none;">Cancel reply</a></small><div class="notice_error">Error! Please fill all fields.</div><form action="https://www.electronics-tutorials.ws/wp-comments-post.php" method="post" id="commentform" class="comment-form"><div class="comment-form-author col-sm-6 col-md-6"><input id="author" placeholder="Your Name" name="author" type="text" value="" size="30" tabindex="1" required=""></div>
+<input type="hidden" name="redirect_to" value="www.electronics-tutorials.ws/opamp/opamp_6.html">
+<div class="comment-form-email col-sm-6 col-md-6"><input id="email" placeholder="Email Address" name="email" type="text" tabindex="2" value="" size="30" required=""></div>
+
+<div class="comment-form-comment col-md-12"><textarea id="comment" name="comment" placeholder="Write your comment here" cols="" rows="8" aria-required="true" tabindex="3"></textarea></div><p class="comment-subscription-form"><input type="checkbox" name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;"> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Submit"> <input type="hidden" name="comment_post_ID" value="2089" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="1ea8c8c53e"></p><p style="display: none !important;"><label>Δ<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js" name="ak_js" value="1644516312409"><script>document.getElementById( "ak_js" ).setAttribute( "value", ( new Date() ).getTime() );</script></p></form>	</div><!-- #respond -->
+			</div>
+
+		<div class="comment-list-cont">
+			
+				<ul class="comment-list">
+										
+    <li class="comment even thread-even depth-1" id="li-comment-76007">
+        <div id="comment-76007" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Nagaraj</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>I want electronic notes</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-76007">October 07th 2021 | 3:06 pm</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=76007#respond" data-commentid="76007" data-postid="2089" data-belowelement="comment-76007" data-respondelement="respond" data-replyto="Reply to Nagaraj" aria-label="Reply to Nagaraj">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-74108">
+        <div id="comment-74108" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">SparkCoil</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>Very decent explanation. Still there is small mistake. It’s written that if input is triangular the output is also sinusoidal. That’s not true. Because triangular wave is nothing than linear function. And if you integrate linear function the result you get is quadratic function. So the output waveform is parabola shaped curve, that constantly switches its direction. The shape may resemble to sine wave, but it’s not.</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-74108">May 02nd 2021 | 7:32 pm</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=74108#respond" data-commentid="74108" data-postid="2089" data-belowelement="comment-74108" data-respondelement="respond" data-replyto="Reply to SparkCoil" aria-label="Reply to SparkCoil">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-69864">
+        <div id="comment-69864" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Raymond</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>On the Integrator ac gain, it is given as (-r2/r1)*(1/(1+2*pi*f*C*r2)) but wouldn’t the f and the 2*pi*r2*C cancel each other out?</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-69864">September 16th 2020 | 10:23 pm</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=69864#respond" data-commentid="69864" data-postid="2089" data-belowelement="comment-69864" data-respondelement="respond" data-replyto="Reply to Raymond" aria-label="Reply to Raymond">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-69764">
+        <div id="comment-69764" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Md Hossen Uddin Rumel</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>very helpfull  for me</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-69764">September 11th 2020 | 8:32 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=69764#respond" data-commentid="69764" data-postid="2089" data-belowelement="comment-69764" data-respondelement="respond" data-replyto="Reply to Md Hossen Uddin Rumel" aria-label="Reply to Md Hossen Uddin Rumel">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-68433">
+        <div id="comment-68433" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Chlatu Abera</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>I need problems on op amp integrator especially how to plot waveform</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-68433">June 18th 2020 | 6:02 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=68433#respond" data-commentid="68433" data-postid="2089" data-belowelement="comment-68433" data-respondelement="respond" data-replyto="Reply to Chlatu Abera" aria-label="Reply to Chlatu Abera">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-66923">
+        <div id="comment-66923" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Sima Sen</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>Nice</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-66923">April 21st 2020 | 11:58 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=66923#respond" data-commentid="66923" data-postid="2089" data-belowelement="comment-66923" data-respondelement="respond" data-replyto="Reply to Sima Sen" aria-label="Reply to Sima Sen">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-66726">
+        <div id="comment-66726" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Austin</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>Why is it that the inputs are not given to the non inverting side so that we get the slope with the same sign as we expect mathematically?</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-66726">April 13th 2020 | 7:27 pm</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=66726#respond" data-commentid="66726" data-postid="2089" data-belowelement="comment-66726" data-respondelement="respond" data-replyto="Reply to Austin" aria-label="Reply to Austin">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    <ul class="children">
+
+    <li class="comment byuser comment-author-wayne bypostauthor odd alt depth-2" id="li-comment-66737">
+        <div id="comment-66737" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Wayne Storr</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>If you want a positive integrated output, just connect another inverting op-amp circuit with a voltage gain of -1 to the integrators output.</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-66737">April 14th 2020 | 9:04 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=66737#respond" data-commentid="66737" data-postid="2089" data-belowelement="comment-66737" data-respondelement="respond" data-replyto="Reply to Wayne Storr" aria-label="Reply to Wayne Storr">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    <ul class="children">
+
+    <li class="comment even depth-3" id="li-comment-66738">
+        <div id="comment-66738" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Austin</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>But then it can’t be done in the non inverting side of the first op-amp?</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-66738">April 14th 2020 | 9:08 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=66738#respond" data-commentid="66738" data-postid="2089" data-belowelement="comment-66738" data-respondelement="respond" data-replyto="Reply to Austin" aria-label="Reply to Austin">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    <ul class="children">
+
+    <li class="comment byuser comment-author-wayne bypostauthor odd alt depth-4 hidden-depth" id="li-comment-66739" style="display: none;">
+        <div id="comment-66739" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Wayne Storr</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>Yeah you can do that. Series connected op-amps, so the order of Intergration-Inversion, or Inversion-Integration is the same as (-RC)*(-1) = (-1)*(-RC) = +RC</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-66739">April 14th 2020 | 9:26 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=66739#respond" data-commentid="66739" data-postid="2089" data-belowelement="comment-66739" data-respondelement="respond" data-replyto="Reply to Wayne Storr" aria-label="Reply to Wayne Storr">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-65838">
+        <div id="comment-65838" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Satya</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>Thanks</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-65838">March 02nd 2020 | 6:26 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=65838#respond" data-commentid="65838" data-postid="2089" data-belowelement="comment-65838" data-respondelement="respond" data-replyto="Reply to Satya" aria-label="Reply to Satya">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-even depth-1" id="li-comment-65593">
+        <div id="comment-65593" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Teo</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>This explanation is wrong. Some people think of themselves to be “professors”</p>
+<p>“…Since the capacitor is connected between the op-amp’s inverting input (which is at earth potential) and the op-amp’s output (which is negative), the potential voltage, Vc developed across the capacitor slowly increases causing the charging current to decrease as the impedance of the capacitor increase..”<br>
+Go back to school. Current is constant till output saturates, that’s  the meaning of virtual ground in this case</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-65593">February 18th 2020 | 5:39 pm</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=65593#respond" data-commentid="65593" data-postid="2089" data-belowelement="comment-65593" data-respondelement="respond" data-replyto="Reply to Teo" aria-label="Reply to Teo">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    <ul class="children">
+
+    <li class="comment even depth-2 hidden-depth" id="li-comment-68306" style="display: none;">
+        <div id="comment-68306" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Mario Gonzalez</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>Why is it in first place that you or anyone has the right to treat people the way you do, sir?<br>
+Tolerance, patience, humbleness.  We engineers and professor never treat anyone with disrespect.  Always find nice and gentle words for those who may be wrong.<br>
+Truth and Wisdom never yell..!!</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-68306">June 10th 2020 | 2:10 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=68306#respond" data-commentid="68306" data-postid="2089" data-belowelement="comment-68306" data-respondelement="respond" data-replyto="Reply to Mario Gonzalez" aria-label="Reply to Mario Gonzalez">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment odd alt depth-2 hidden-depth" id="li-comment-65659" style="display: none;">
+        <div id="comment-65659" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Matt</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>Damn right</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-65659">February 22nd 2020 | 11:10 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=65659#respond" data-commentid="65659" data-postid="2089" data-belowelement="comment-65659" data-respondelement="respond" data-replyto="Reply to Matt" aria-label="Reply to Matt">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-64680">
+        <div id="comment-64680" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Robert</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>I’m puzzled why in SPICE (I have LTSPICE) I need to use a pulse or PWL Vin instead of a constant even though both amount to the same thing which is a fixed voltage at t=0 and beyond. I can see why in real circuits you need a switch to control the voltage before and after time zero but why in SPICE since the simulation starts at t=0. Does it have something to do with a DC bias point calculation done first? Thanks.</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-64680">December 26th 2019 | 4:16 pm</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=64680#respond" data-commentid="64680" data-postid="2089" data-belowelement="comment-64680" data-respondelement="respond" data-replyto="Reply to Robert" aria-label="Reply to Robert">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    <ul class="children">
+
+    <li class="comment byuser comment-author-wayne bypostauthor odd alt depth-2 hidden-depth" id="li-comment-64685" style="display: none;">
+        <div id="comment-64685" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Wayne Storr</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>Please ask this question to the programmers of PSPICE</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-64685">December 26th 2019 | 6:47 pm</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=64685#respond" data-commentid="64685" data-postid="2089" data-belowelement="comment-64685" data-respondelement="respond" data-replyto="Reply to Wayne Storr" aria-label="Reply to Wayne Storr">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-64659">
+        <div id="comment-64659" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Anil kumar</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>Very nice</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-64659">December 25th 2019 | 7:32 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=64659#respond" data-commentid="64659" data-postid="2089" data-belowelement="comment-64659" data-respondelement="respond" data-replyto="Reply to Anil kumar" aria-label="Reply to Anil kumar">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-63729">
+        <div id="comment-63729" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Rajat</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>Thank you</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-63729">November 13th 2019 | 7:06 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=63729#respond" data-commentid="63729" data-postid="2089" data-belowelement="comment-63729" data-respondelement="respond" data-replyto="Reply to Rajat" aria-label="Reply to Rajat">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-63613">
+        <div id="comment-63613" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Abhinandan Kumar</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>Helpful to correct solution.</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-63613">November 08th 2019 | 1:32 pm</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=63613#respond" data-commentid="63613" data-postid="2089" data-belowelement="comment-63613" data-respondelement="respond" data-replyto="Reply to Abhinandan Kumar" aria-label="Reply to Abhinandan Kumar">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-63548">
+        <div id="comment-63548" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">MONJURUL</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>It helped me a lot</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-63548">November 06th 2019 | 9:14 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=63548#respond" data-commentid="63548" data-postid="2089" data-belowelement="comment-63548" data-respondelement="respond" data-replyto="Reply to MONJURUL" aria-label="Reply to MONJURUL">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-62440">
+        <div id="comment-62440" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Tikesh</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>Very helpfull ….. Thanks a lot..</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-62440">September 16th 2019 | 9:45 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=62440#respond" data-commentid="62440" data-postid="2089" data-belowelement="comment-62440" data-respondelement="respond" data-replyto="Reply to Tikesh" aria-label="Reply to Tikesh">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-61258">
+        <div id="comment-61258" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Sireesha</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>It’s helped for me</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-61258">July 16th 2019 | 11:22 pm</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=61258#respond" data-commentid="61258" data-postid="2089" data-belowelement="comment-61258" data-respondelement="respond" data-replyto="Reply to Sireesha" aria-label="Reply to Sireesha">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-61248">
+        <div id="comment-61248" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Henok</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>About the waveforms “input signal” and “output signal” next to (under) the title:<br>
+“Op-amp Integrator Ramp Generator”<br>
+Shouldn’t the input square waveform swing between +1V and -1V, instead of 0V and 1V, to give the triangular output wave form shown ? I think the output of the integrator will increase linearly when input is -1V and hold its last value when input is 0V and then increase linearly again when input is -1V  and hold the last value again when input is 0V, and so on , until the                   op amp saturates. Or, where am I wrong ?</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-61248">July 16th 2019 | 9:03 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=61248#respond" data-commentid="61248" data-postid="2089" data-belowelement="comment-61248" data-respondelement="respond" data-replyto="Reply to Henok" aria-label="Reply to Henok">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    <ul class="children">
+
+    <li class="comment byuser comment-author-wayne bypostauthor odd alt depth-2 hidden-depth" id="li-comment-61261" style="display: none;">
+        <div id="comment-61261" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Wayne Storr</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>It could be, depends if the op-amp is using a single or dual supply.</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-61261">July 17th 2019 | 6:43 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=61261#respond" data-commentid="61261" data-postid="2089" data-belowelement="comment-61261" data-respondelement="respond" data-replyto="Reply to Wayne Storr" aria-label="Reply to Wayne Storr">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment even depth-2 hidden-depth" id="li-comment-61260" style="display: none;">
+        <div id="comment-61260" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Henok</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>correction:<br>
+                     ” . . . , instead of 0V and -1V, . . .   ”<br>
+NOT<br>
+                      ” . . . , instead of 0V and 1V, . . . “</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-61260">July 17th 2019 | 5:29 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=61260#respond" data-commentid="61260" data-postid="2089" data-belowelement="comment-61260" data-respondelement="respond" data-replyto="Reply to Henok" aria-label="Reply to Henok">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+<li><div class="li-view-more" id="view-more_li-comment-61260">More</div></li></ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-57341">
+        <div id="comment-57341" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Dev Narayan</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>V.good</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-57341">March 30th 2019 | 6:40 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=57341#respond" data-commentid="57341" data-postid="2089" data-belowelement="comment-57341" data-respondelement="respond" data-replyto="Reply to Dev Narayan" aria-label="Reply to Dev Narayan">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-57285">
+        <div id="comment-57285" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Safin</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>First try</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-57285">March 28th 2019 | 5:54 pm</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=57285#respond" data-commentid="57285" data-postid="2089" data-belowelement="comment-57285" data-respondelement="respond" data-replyto="Reply to Safin" aria-label="Reply to Safin">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-56607">
+        <div id="comment-56607" class="clearfix">
+            <div class="col-a">
+                            </div>
+            <div class="col-b">
+                <div class="comment-author vcard">
+                                        <cite class="fn">Landry</cite>                </div>
+                
+                <div class="comment-text">
+                    <p>Thank you.</p>
+<p>In the 2nd schematic, I see that, the time constant is now proportional at R2C only. there is not an error?</p>
+                </div>
+
+                <div class="comment-meta commentmetadata clearfix">
+                    <div class="date-time col-sm-6 col-md-6 no-padd">
+                        Posted on <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#comment-56607">March 01st 2019 | 11:29 am</a>
+                    </div>
+                    <div class="reply col-sm-6 col-md-6 no-padd">
+                        <span class="glyphicon glyphicon-share-alt"></span> <a rel="nofollow" class="comment-reply-link" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html?replytocom=56607#respond" data-commentid="56607" data-postid="2089" data-belowelement="comment-56607" data-respondelement="respond" data-replyto="Reply to Landry" aria-label="Reply to Landry">Reply</a>                    </div>
+                </div>
+            </div>
+                    </div>
+
+    </li><!-- #comment-## -->
+				</ul>
+
+									<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
+						<div id="view_more">
+							<a rel="nofollow" href="https://www.electronics-tutorials.ws/opamp/opamp_6.html/comment-page-2#comments">View More</a>							
+						</div>
+						<div class="comment-loading"><img src="./Op-amp Integrator, Operational Amplifier Integrator_files/loading.gif" alt="Loading"></div>
+					</nav>
+				
+									</div>
+	</div>
+</div>
+
+				            </div>
+
+			<div class="sidebar col-md-4">
+    <div id="trigger-point"></div>
+    <div id="wp_simple_related_post-2" class="widgets wp_simple_related_post clearfix">            <div class="related-posts wrapper clearfix">
+                <div class="widgets">
+                    <h2 class="sidebar-title-cat">Read more Tutorials inOperational Amplifiers</h2>
+                    <div class="category box">
+                        <ul class="clearfix">
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/opamp_1.html">1. Operational Amplifier Basics</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/opamp_2.html">2. Inverting Operational Amplifier</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/opamp_3.html">3. Non-inverting Operational Amplifier</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/opamp_4.html">4. The Summing Amplifier</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/opamp_5.html">5. The Differential Amplifier</a></li>
+                                                                                            <li class="active"><a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html">6. The Integrator Amplifier</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/opamp_7.html">7. The Differentiator Amplifier</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/opamp_8.html">8. Operational Amplifiers Summary</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/op-amp-building-blocks.html">9. Operational Amplifier Building Blocks</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/op-amp-multivibrator.html">10. Op-amp Multivibrator</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/op-amp-comparator.html">11. Op-amp Comparator</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/op-amp-monostable.html">12. Op-amp Monostable</a></li>
+                                                                                            <li><a href="https://www.electronics-tutorials.ws/opamp/passive-averager.html">13. Passive Averager</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div><div id="block-4" class="widgets widget_block clearfix"><div id="div-gpt-ad-right-sidebar-top" style="margin: 0 0 10px;text-align: center;">
+<script type="text/javascript"><br />
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-right-sidebar-top'); });
+</script>
+</div></div><div id="block-5" class="widgets widget_block clearfix"><div id="div-gpt-ad-right-sidebar-middle" style="margin: 0 0 10px;text-align: center;">
+<script type="text/javascript"><br />
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-right-sidebar-middle'); });
+</script>
+</div></div><div id="ds_widget-2" class="widgets widget_ds_widget clearfix">            <style>
+                .ds-widget #search-box-home {
+                    padding: 1rem;
+                    background-color: #1c364f;
+                }
+
+                .ds-widget #search-box-home h1 {
+                    margin-bottom: 10px;
+                    text-transform: uppercase;
+                    font-size: 22px;
+                    font-weight: bold;
+                }
+
+                .ds-widget .text-white {
+                    color: #fff;
+                }
+
+                .ds-widget input.form-control {
+                    background: #fff;
+                    border: none;
+                    color: #000;
+                    height: 39px;
+                    width: 100%;
+                }
+
+                .ds-widget .input-group-append {
+                    position: absolute;
+                    right: 7px;
+                    bottom: 7px;
+                    display: block;
+                }
+
+                .ds-widget button.input-group-text {
+                    background: #fff;
+                    border: none;
+                    color: #000;
+                    padding: 0 !important;
+                }
+
+                .ds-widget button.input-group-text:focus {
+                    border: none !important;
+                    background: #fff;
+                }
+
+                .ds-widget button.input-group-text:hover {
+                    background: #fff;
+                    border: none !important;
+                }
+
+                .ds-widget input.form-control::placeholder {
+                    color: #000;
+                    opacity: 1;
+                }
+
+                .ds-widget input.form-control:-ms-input-placeholder {
+                    color: #000;
+                }
+
+                .ds-widget input.form-control::-ms-input-placeholder {
+                    color: #000;
+                }
+
+                .ds-widget .form-control:focus {
+                    color: #000;
+                    background-color: #fff;
+                }
+
+                .ds-widget ul#search-results__autocomplete {
+                    padding: 10px;
+                }
+
+                .ds-widget .results {
+                    display: block;
+                }
+
+                .ds-widget .results hr {
+                    border-top: 1px solid rgb(51 87 114);
+                }
+
+                .ds-widget li {
+                    border-bottom: 1px solid rgb(51 87 114);
+                    padding-bottom: 0 !important;
+                    margin-bottom: 10px;
+                    display: flex;
+                    flex: 1;
+                    justify-content: space-between;
+                }
+
+                .ds-widget li * {
+                    color: #fff;
+                }
+
+                .ds-widget li a:hover {
+                    color: #023663;
+                    /* font-weight: bold; */
+                    text-decoration: underline;
+                }
+
+                .ds-widget {
+                    border: 5px solid black;
+                    position: relative;
+                    /* min-height: 350px;
+						height: 350px; */
+                    background: #1c364f;
+                    padding: 15px;
+                }
+
+                .ds-widget .error {
+                    padding: 10px;
+                }
+
+                .ds-widget .header-text span {
+                    font-size: .7rem;
+                }
+
+                .ds-widget img.mg {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    width: auto;
+                    opacity: 18%;
+                    display: block;
+                }
+
+                .ds-widget ul#search-results__autocomplete hr {
+                    margin: 0;
+                }
+
+                .ds-widget .part,
+                .ds-widget .manufacture {
+                    color: #fff !important;
+                }
+
+                .ds-widget .manufacture:hover {
+                    color: #f1ce3b !important;
+                }
+
+                .ds-widget #loader {
+                    position: relative;
+                    left: 0px;
+                    right: 0px;
+                }
+
+                .ds-widget .position-relative {
+                    position: relative;
+                }
+
+                .ds-widget .logo {
+                    width: 45%;
+                    margin-bottom: 0;
+                }
+
+                .ds-widget table thead th {
+                    border-bottom: none !important;
+                    font-weight: 700;
+                    font-size: 14px;
+                }
+
+                .ds-widget th {
+                    color: #f1ce3b;
+                }
+
+                .ds-widget table th,
+                .ds-widget table td {
+
+                    border-bottom: 1px solid #ebebeb33;
+                    border-top: none !important;
+                    padding: 0 !important;
+                }
+
+                .ds-widget table td a {
+                    font-weight: bold;
+                    font-size: 14px;
+                }
+
+                .ds-widget table td a:hover {
+                    color: #f1ce3b !important;
+                }
+
+                .ds-widget .view-more {
+                    color: #fff;
+                    text-align: right;
+                    margin-bottom: 0;
+                }
+
+                .ds-widget .view-more a {
+                    color: #fff;
+                    font-weight: bold;
+                    position: relative;
+                    z-index: 99;
+                    font-size: 14px;
+                }
+
+                .ds-widget .view-more span {
+                    color: #f1ce3b;
+                    font-size: 18px;
+                }
+
+
+                @media only screen and (max-width: 600px) {
+                    .ds-widget #search-box-home {
+                        padding: .9rem;
+                    }
+
+                    .ds-widget table td a {
+                        font-size: 12px;
+                    }
+                }
+            </style>
+			        <div class="ds-widget" data-lang="en">
+            <img loading="lazy" class="mg" src="./Op-amp Integrator, Operational Amplifier Integrator_files/back1.png">
+            <div class="" id="search-box-home">
+                <div class="">
+                    <div class="row">
+                        <div class="col text-right">
+                            <a target="_blank" href="https://www.datasheets.com/en?utm_source=electronics-tutorials.ws&amp;utm_medium=DS_Widget">
+                                <img width="149" height="25" loading="lazy" src="./Op-amp Integrator, Operational Amplifier Integrator_files/logo.png" class="img-fluid logo" alt="datasheets.com logo">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            <div class="search-container">
+                                <div class="form-group position-relative">
+                                    <h1 class="h2 text-white header-text text-uppercase">
+                                        <span>Looking for</span><br>DataSheets                                        ?</h1>
+                                    <input type="text" name="keyword" id="keyword" class="form-control my-0 py-1" placeholder="Enter Part Number" value="" aria-label="Search" autocomplete="off" required="">
+                                    <div class="input-group-append">
+                                        <button aria-label="Submit" id="dsWidgetFetch" class="input-group-text" type="submit">
+                                            <img loading="lazy" src="./Op-amp Integrator, Operational Amplifier Integrator_files/search-solid.svg" class="search-icon" width="24" height="24" alt="search icon">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row results">
+                        <div id="loader" class="text-center m-3" style="display: none;">
+                            <img src="./Op-amp Integrator, Operational Amplifier Integrator_files/loader.svg" width="40px" height="40px" alt="loader">
+                        </div>
+                        <div id="datafetch" class="col"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            jQuery(document).ready(function ($) {
+                jQuery('body').on('click', '#dsWidgetFetch', function (e) {
+                    e.preventDefault();
+                    console.log("xxx");
+                    dsWidgetFetch();
+                })
+            });
+        </script>
+
+		</div></div>
+        </div>
+    </div>
+
+
+    <script>
+        jQuery(document).ready(function ($) {
+
+            var content = document.getElementsByClassName('content-cont');
+            var jcontent = jQuery('.content-cont');
+            var count = jQuery('.content-cont p').length;
+            console.log(count);
+            if ($(window).width() < 768) {
+
+                var mobMiddleStep = 0;
+                var mobMiddle2Step = 0;
+                var mobBottomStep = 0;
+
+                if (count > 4) {
+                    var step = Math.floor(count / 4);
+                    mobMiddleStep = step;
+                    mobMiddle2Step = 2 * step;
+                    mobBottomStep = 3 * step;
+                } else if (count > 1) {
+                    mobMiddleStep = 1;
+                    mobMiddle2Step = 2;
+                    mobBottomStep = 3;
+                }
+
+                <!-- middle AD -->
+                var middleWrapper = document.createElement('div');
+                middleWrapper.setAttribute('class', 'text-center mobile-only');
+
+                var middle = document.createElement('div');
+                middle.setAttribute('id', 'div-gpt-mobile-middle');
+                middleWrapper.appendChild(middle);
+
+                if (mobMiddleStep > 0) {
+                    jcontent.children('p').eq(mobMiddleStep).after(middleWrapper);
+                }
+                <!-- middle AD -->
+
+                <!-- middle2 AD -->
+                var middle2Wrapper = document.createElement('div');
+                middle2Wrapper.setAttribute('class', 'text-center mobile-only');
+
+                var middle2 = document.createElement('div');
+                middle2.setAttribute('id', 'div-gpt-mobile-middle2');
+                middle2Wrapper.appendChild(middle2);
+
+                if (mobMiddle2Step > 0) {
+                    jcontent.children('p').eq(mobMiddle2Step).after(middle2Wrapper);
+                }
+                <!-- middle2 AD -->
+
+                <!-- bottom AD -->
+                var bottomWrapper = document.createElement('div');
+                bottomWrapper.setAttribute('class', 'text-center mobile-only');
+
+                var bottom = document.createElement('div');
+                bottom.setAttribute('id', 'div-gpt-mobile-bottom');
+                bottomWrapper.appendChild(bottom);
+
+                if (mobBottomStep > 0) {
+                    jcontent.children('p').eq(mobBottomStep).after(bottomWrapper);
+                }
+
+                <!-- bottom AD -->
+                googletag.cmd.push(function () {
+                    googletag.display('div-gpt-mobile-middle');
+                });
+
+                googletag.cmd.push(function () {
+                    googletag.display('div-gpt-mobile-middle2');
+                });
+
+                googletag.cmd.push(function () {
+                    googletag.display('div-gpt-mobile-bottom');
+                });
+
+            } else {
+
+                var middleStep = 0;
+                var bottomStep = 0;
+
+                if (count > 2) {
+                    var step = Math.floor(count / 3);
+                    middleStep = step;
+                    bottomStep = 2 * step;
+                } else if (count > 1) {
+                    middleStep = 1;
+                }
+
+                var middle = document.createElement('div');
+                middle.setAttribute('id', 'div-gpt-ad-content-middle');
+
+                if (middleStep > 0) {
+                    jcontent.children('p').eq(middleStep).after(middle);
+                }
+
+                var bmiddle = document.createElement('div');
+                bmiddle.setAttribute('class', 'row double-ads');
+                var lm = document.createElement('div');
+                var rm = document.createElement('div');
+                var gptlm = document.createElement('div');
+                var gptrm = document.createElement('div');
+
+                gptlm.setAttribute('id', 'div-gpt-ad-content-middle-2-left');
+                gptrm.setAttribute('id', 'div-gpt-ad-content-middle-2-right');
+                lm.setAttribute('class', 'col-sm-12 col-md-6');
+                rm.setAttribute('class', 'col-sm-12 col-md-6');
+
+                lm.appendChild(gptlm);
+                rm.appendChild(gptrm);
+                bmiddle.appendChild(lm);
+                bmiddle.appendChild(rm);
+
+                if (bottomStep > 0) {
+                    jcontent.children('p').eq(bottomStep).after(bmiddle);
+                }
+
+                var btop = document.createElement('div');
+                btop.setAttribute('class', 'row double-ads');
+                var lt = document.createElement('div');
+                var rt = document.createElement('div');
+                var gptlt = document.createElement('div');
+                var gptrt = document.createElement('div');
+
+                gptlt.setAttribute('id', 'div-gpt-ad-content-top-left');
+                gptrt.setAttribute('id', 'div-gpt-ad-content-top-right');
+                lt.setAttribute('class', 'col-sm-12 col-md-6');
+                rt.setAttribute('class', 'col-sm-12 col-md-6');
+
+                lt.appendChild(gptlt);
+                rt.appendChild(gptrt);
+                btop.appendChild(lt);
+                btop.appendChild(rt);
+
+                if (bottomStep > 0) {
+                    jcontent.children('p').eq(2).after(btop);
+                }
+
+                googletag.cmd.push(function () {
+                    googletag.display('div-gpt-ad-content-top-left');
+                });
+
+                googletag.cmd.push(function () {
+                    googletag.display('div-gpt-ad-content-top-right');
+                });
+
+                googletag.cmd.push(function () {
+                    googletag.display('div-gpt-ad-content-middle');
+                });
+
+                googletag.cmd.push(function () {
+                    googletag.display('div-gpt-ad-content-middle-2-left');
+                });
+
+                googletag.cmd.push(function () {
+                    googletag.display('div-gpt-ad-content-middle-2-right');
+                });
+
+            }
+        });
+
+        //     // var el = document.createElement('script');
+        //     // el.type = 'text/javascript';
+        //     // el.async = true;
+        //     // el.text = "googletag.cmd.push(function () { googletag.display('div-gpt-ad-content-top-left'); })";
+
+    </script>
+</div>
+</div>
+</div>
+</div>
+
+    <div class="div-gpt-ad-footer-adhesion-wrapper" id="div-gpt-ad-footer-adhesion-wrapper" style="display: block;">
+        <div id="div-gpt-ad-footer-adhesion">
+            <script>
+                // googletag.cmd.push(function() { googletag.display('div-gpt-ad-footer-adhesion'); });
+            </script>
+        </div>
+
+        <a href="https://www.electronics-tutorials.ws/opamp/opamp_6.html#" id="footer-adhesion-close" class="footer-adhesion-close">Close</a>
+    </div>
+
+    <div class="footer-ad-container">
+        <div class="ads-full footer-ads">
+			        </div>
+    </div>
+<div class="footer-wrap">
+    <div class="container">
+		<div class="menu-footer-menu-container"><ul id="footer-menu" class="clearfix"><li id="menu-item-9292" class="basics col-md-2 col-sm-6 col-xs-12 menu-item-has-children"><a>The Basics</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-9293"><a target="_blank" rel="noopener" href="https://www.electronics-tutorials.ws/contact">Contact Us</a></li>
+	<li id="menu-item-9294"><a target="_blank" rel="noopener" href="https://www.aspencore.com/privacy-policy">Privacy Policy</a></li>
+	<li id="menu-item-9295"><a target="_blank" rel="noopener" href="https://www.aspencore.com/terms-of-use">Terms of Use</a></li>
+</ul>
+</li>
+<li id="menu-item-9296" class="advertisers col-md-2 col-sm-6 col-xs-12 menu-item-has-children"><a>For Advertisers</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-9297"><a target="_blank" rel="noopener" href="https://aspencore.com/contact">Contact Sales</a></li>
+	<li id="menu-item-9298"><a target="_blank" rel="noopener" href="https://aspencore.com/media-guide-request">Media Guide Request</a></li>
+</ul>
+</li>
+<li id="menu-item-9299" class="aspencore-network col-md-3 col-sm-12 col-xs-12 menu-item-has-children"><a>Aspencore Network</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-9300"><a target="_blank" rel="noopener" href="https://www.ebnonline.com/">EBN</a></li>
+	<li id="menu-item-9301"><a target="_blank" rel="noopener" href="https://www.edn.com/">EDN</a></li>
+	<li id="menu-item-9302"><a target="_blank" rel="noopener" href="https://www.eetimes.com/">EE Times</a></li>
+	<li id="menu-item-9303"><a target="_blank" rel="noopener" href="https://www.eeweb.com/">EEWeb</a></li>
+	<li id="menu-item-9305"><a target="_blank" rel="noopener" href="https://www.electronicproducts.com/">Electronic Products</a></li>
+	<li id="menu-item-9306"><a target="_blank" rel="noopener" href="https://www.powerelectronicsnews.com/">Power Electronics News</a></li>
+	<li id="menu-item-9307"><a target="_blank" rel="noopener" href="https://www.embedded.com/">Embedded</a></li>
+	<li id="menu-item-9308"><a target="_blank" rel="noopener" href="https://www.planetanalog.com/">Planet Analog</a></li>
+	<li id="menu-item-9309"><a target="_blank" rel="noopener" href="https://www.electroschematics.com/">ElectroSchematics</a></li>
+	<li id="menu-item-9310"><a target="_blank" rel="noopener" href="https://www.techonline.com/">TechOnline</a></li>
+	<li id="menu-item-9311"><a target="_blank" rel="noopener" href="https://www.datasheets.com/">Datasheets.com</a></li>
+	<li id="menu-item-9318"><a target="_blank" rel="noopener" href="https://electronics-know-how.com/">Electronics Know How</a></li>
+	<li id="menu-item-10511"><a target="_blank" rel="noopener" href="https://iot.eetimes.com/">IoT Times</a></li>
+</ul>
+</li>
+<li id="menu-item-9320" class="global-network col-md-3 col-sm-12 col-xs-12 menu-item-has-children"><a>Global Network</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-9322"><a target="_blank" rel="noopener" href="https://www.eetasia.com/">EE Times Asia</a></li>
+	<li id="menu-item-9323"><a target="_blank" rel="noopener" href="https://www.eet-china.com/">EE Times China</a></li>
+	<li id="menu-item-9325"><a target="_blank" rel="noopener" href="https://www.eetindia.co.in/">EE Times India</a></li>
+	<li id="menu-item-9326"><a target="_blank" rel="noopener" href="https://eetimes.jp/">EE Times Japan</a></li>
+	<li id="menu-item-9327"><a target="_blank" rel="noopener" href="https://www.eettaiwan.com/">EE Times Taiwan</a></li>
+	<li id="menu-item-9328"><a target="_blank" rel="noopener" href="https://www.ednasia.com/">EDN Asia</a></li>
+	<li id="menu-item-9329"><a target="_blank" rel="nooponer" href="https://www.ednchina.com/">EDN China</a></li>
+	<li id="menu-item-9331"><a target="_blank" rel="noopener" href="https://www.edntaiwan.com/">EDN Taiwan</a></li>
+	<li id="menu-item-9332"><a target="_blank" rel="noopener" href="https://ednjapan.com/">EDN Japan</a></li>
+	<li id="menu-item-9333"><a target="_blank" rel="noopener" href="https://www.esmchina.com/">ESM China</a></li>
+</ul>
+</li>
+<li id="menu-item-9334" class="connect col-md-2 col-sm-12 col-xs-12 menu-item-has-children"><a>Connect with Us</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-9335"><a target="_blank" rel="noopener" href="https://www.facebook.com/electronicstutorials"><span class="facebook"></span>Facebook</a></li>
+</ul>
+</li>
+</ul></div>        <div class="footer-logo">
+            <img width="140" height="34" alt="AspenCore logo general" loading="lazy" src="./Op-amp Integrator, Operational Amplifier Integrator_files/AspenCore_logo_general-@2x.png">
+        </div>
+    </div>
+    <div class="bttm-most">
+        <div class="container">
+            <div class="col-a">
+				All contents are Copyright                © 2022 by AspenCore, Inc. All rights reserved.            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script type="text/javascript">
+        function dsWidgetFetch() {
+            if (jQuery('#keyword').val().length >= 3) {
+                jQuery.ajax({
+                    url: 'https://www.electronics-tutorials.ws/wp-admin/admin-ajax.php',
+                    type: 'post',
+                    data: {
+                        action: 'data_fetch',
+                        keyword: jQuery('#keyword').val(),
+                        datasheetsSecurity: '0e5ada905a',
+                    },
+                    beforeSend: function () {
+                        jQuery("#loader").show();
+                        jQuery('#datafetch').hide();
+                    },
+                    success: function (data) {
+                        jQuery('#datafetch').empty();
+                        jQuery('#datafetch').show();
+                        jQuery('#datafetch').append(data);
+                    },
+                    complete: function (data) {
+                        jQuery("#loader").hide();
+                    }
+                });
+
+            } else {
+                var lang = jQuery('.ds-widget').attr("data-lang");
+                lang = 'en';
+                switch (lang) {
+                    case "en":
+                        error = "Search keyword must be at least 3 characters.";
+                        break;
+                    default:
+                        error = "Search keyword must be at least 3 characters.";
+                }
+
+                jQuery('#datafetch').html("<p class='text-white error '>" + error + "</p>");
+            }
+        }
+    </script>
+
+	<script id="wp-comment-js-js-extra">
+var etuts_ajax_comment_params = {"ajaxurl":"https:\/\/www.electronics-tutorials.ws\/wp-admin\/admin-ajax.php","ajax_nonce":"e02f7225b7","submit_text":"Submit","sending_text":"Sending"};
+</script>
+<script id="thickbox-js-extra">
+var thickboxL10n = {"next":"Next >","prev":"< Prev","image":"Image","of":"of","close":"Close","noiframes":"This feature requires inline frames. You have iframes disabled or your browser does not support them.","loadingAnimation":"https:\/\/www.electronics-tutorials.ws\/wp-includes\/js\/thickbox\/loadingAnimation.gif"};
+</script>
+<script id="jetpack-lazy-images-js-extra">
+var jetpackLazyImagesL10n = {"loading_warning":"Images are still loading. Please cancel your print and try again."};
+</script>
+<script type="text/javascript" src="./Op-amp Integrator, Operational Amplifier Integrator_files/saved_resource(4)"></script><script src="./Op-amp Integrator, Operational Amplifier Integrator_files/e-202206.js.download" defer=""></script>
+<script>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:10.6',blog:'154170251',post:'2089',tz:'0',srv:'www.electronics-tutorials.ws'} ]);
+	_stq.push([ 'clickTrackerInit', '154170251', '2089' ]);
+</script>
+
+<script type="text/javascript" id="cookieinfo" src="./Op-amp Integrator, Operational Amplifier Integrator_files/cookieinfo.min.js.download" data-position="top">
+</script>
+
+<!--    <div id='div-gpt-ad-inread'>-->
+<!--        <script type='text/javascript'>-->
+<!--            googletag.cmd.push(function () {-->
+<!--                googletag.display('div-gpt-ad-inread');-->
+<!--            });-->
+<!--        </script>-->
+<!--    </div>-->
+
+<!-- Quantcast Tag -->
+<script type="text/javascript">
+    var _qevents = _qevents || [];
+    (function () {
+        var elem = document.createElement('script');
+        elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+        elem.async = true;
+        elem.type = "text/javascript";
+        var scpt = document.getElementsByTagName('script')[0];
+        scpt.parentNode.insertBefore(elem, scpt);
+    })();
+
+    _qevents.push({
+        qacct: "p-ha81gRQTKQ0vn"
+    });
+</script>
+
+<noscript>
+    <div style="display:none;">
+        <img src="//pixel.quantserve.com/pixel/p-ha81gRQTKQ0vn.gif" border="0" height="1" width="1" alt="Quantcast"/>
+    </div>
+</noscript>
+<!-- End Quantcast tag -->
+
+<script>
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1);
+            if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+        }
+        return '';
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (24*60*60*1000));
+        var expires = "expires="+d.toUTCString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+
+    $(document).ready(function() {
+        var footeradhesion = getCookie('footeradhesion');
+
+        if (footeradhesion !== 'hide'){
+            $('.div-gpt-ad-footer-adhesion-wrapper').show();
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-footer-adhesion'); });
+        }
+
+        $(".footer-adhesion-close").click(function(event) {
+            event.preventDefault();
+            document.getElementById('div-gpt-ad-footer-adhesion-wrapper').style.display = 'none';
+            setCookie('footeradhesion', 'hide', 30);
+        });
+    });
+</script>
+
+
+<noscript><img src="https://www.electronics-tutorials.ws/akam/11/pixel_27f3e13e?a=dD1mZmJjMjNhM2Y0ZWI5NjYwNGNhMTZlYzY0ZGU3ZGQzYmY1Njc3Nzc2JmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript>
+<img src="./Op-amp Integrator, Operational Amplifier Integrator_files/g.gif" alt="" width="6" height="5" id="wpstats"><div class="kxhead" data-id="sbnf4txm4" style="display:none !important;"></div></body><iframe id="kx-proxy-sbnf4txm4" frameborder="0" width="0" height="0" tabindex="-1" title="empty" aria-hidden="true" src="./Op-amp Integrator, Operational Amplifier Integrator_files/proxy.3d2100fd7107262ecb55ce6847f01fa5.html" style="display: none; visibility: hidden; height: 0; width: 0;"></iframe></html>
